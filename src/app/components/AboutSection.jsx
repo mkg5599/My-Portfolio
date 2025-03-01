@@ -91,9 +91,7 @@ const TAB_DATA = [
   },
 ];
 
-//////////////////////////////////
-// ABOUT SECTION COMPONENT
-//////////////////////////////////
+
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
@@ -107,7 +105,7 @@ const AboutSection = () => {
   const activeTabContent = TAB_DATA.find((t) => t.id === tab)?.content;
 
   return (
-    <section className="text-white bg-black" id="about">
+    <section className="text-white" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         {/* Left Column: Image */}
         <Image

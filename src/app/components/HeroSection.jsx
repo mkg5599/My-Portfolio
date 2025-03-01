@@ -68,7 +68,7 @@ const HeroSection = () => {
         >
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
             <div className="place-self-center w-full h-full">
-              {/* <InteractiveImage /> */}
+              <InteractiveImage />
             </div>
           </div>
         </motion.div>
