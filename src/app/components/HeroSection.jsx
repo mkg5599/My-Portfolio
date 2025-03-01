@@ -50,7 +50,7 @@ const HeroSection = () => {
               Hire Me
             </Link>
             <Link
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1CsGvdxM-KPnQ0h7U044kmrvroWWztnUQ/view?usp=sharing"
               target="_blank"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
             >
@@ -68,7 +68,7 @@ const HeroSection = () => {
         >
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
             <div className="place-self-center w-full h-full">
-              <InteractiveImage />
+              {/* <InteractiveImage /> */}
             </div>
           </div>
         </motion.div>

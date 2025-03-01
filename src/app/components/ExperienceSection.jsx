@@ -78,7 +78,7 @@ const ExperienceSection = () => {
                         return (
                             <motion.div
                                 key={i}
-                                className="relative w-full md:w-[47%] px-2"
+                                className="relative w-full md:w-[48%] px-2"
                                 style={{
                                     // On larger screens, push card to left or right of center
                                     marginLeft: isLeftSide ? "auto" : 0,
@@ -102,7 +102,10 @@ const ExperienceSection = () => {
                     bg-gradient-to-tr from-pink-500 to-purple-500
                     border-4
                     border-black
-                    ${isLeftSide ? "left-[-54px]" : "right-[-54px]"}
+                    ${isLeftSide
+                                            ? "left-[-4.25%] -translate-x-1/2"  // anchor left edge, shift left 50%
+                                            : "right-[-4.25%] translate-x-1/2" // anchor right edge, shift right 50%
+                                        }
                     
                   `}
                                 />

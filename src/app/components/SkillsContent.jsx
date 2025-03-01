@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 // React Icons
 import {
     DiPython,
@@ -41,12 +40,14 @@ import {
     SiSalesforce,
     SiEsri,
     SiDocker,
-    SiOpengl
+    SiOpengl,
 } from "react-icons/si";
 import { TbLetterC, TbBrandCSharp } from "react-icons/tb";
 import { LiaAws } from "react-icons/lia"; // or SiAmazonaws
 
-// A small sub-tab button for the category selection
+//////////////////////////////////
+// SUB-TAB BUTTON
+//////////////////////////////////
 const SubTabButton = ({ children, active, onClick }) => {
     return (
         <button
@@ -61,16 +62,20 @@ const SubTabButton = ({ children, active, onClick }) => {
     );
 };
 
-// These 3 sub-tabs correspond to your skill categories
+//////////////////////////////////
+// SUB-TABS
+//////////////////////////////////
 const SUB_TABS = [
     { id: "programming", label: "Programming & Scripting" },
     { id: "frameworks", label: "Frameworks & Development" },
     { id: "cloud", label: "Cloud & Tools" },
 ];
 
-// A reusable grid item for a skill. If you have no icon, pass null or "undefined" for `Icon` and we’ll just show text.
+//////////////////////////////////
+// SKILL ITEM
+//////////////////////////////////
 function SkillItem({ Icon, label }) {
-    // A shared class for the icons: pink color + slight glow on hover
+    // Pink glow effect & hover scale
     const iconClass = `
     text-5xl
     text-pink-500
@@ -80,11 +85,10 @@ function SkillItem({ Icon, label }) {
   `;
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center justify-center text-center">
             {Icon ? (
                 <Icon className={iconClass} title={label} />
             ) : (
-                /* If there's no valid icon, just show a placeholder or nothing */
                 <span className="text-lg font-semibold">{label}</span>
             )}
             <span className="mt-1">{label}</span>
@@ -92,22 +96,22 @@ function SkillItem({ Icon, label }) {
     );
 }
 
+//////////////////////////////////
+// MAIN COMPONENT
+//////////////////////////////////
 const SkillsContent = () => {
     const [activeSubTab, setActiveSubTab] = useState("programming");
 
-    // --- 1) Programming & Scripting
-    // C, C++, Python, TypeScript, JavaScript, PHP, SQL, NoSQL, Java, C#, HTML, CSS
+    // 1) Programming & Scripting
+    // C, C++, Python, TypeScript, JavaScript, PHP, Java, C#, HTML, CSS
     const ProgrammingContent = (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
             <SkillItem Icon={TbLetterC} label="C" />
             <SkillItem Icon={SiCplusplus} label="C++" />
             <SkillItem Icon={DiPython} label="Python" />
             <SkillItem Icon={SiTypescript} label="TypeScript" />
             <SkillItem Icon={DiJavascript1} label="JavaScript" />
             <SkillItem Icon={DiPhp} label="PHP" />
-            {/* For SQL and NoSQL, let's just do text (no direct icons) */}
-            {/* <SkillItem Icon={SiMysql} label="SQL" />
-            <SkillItem Icon={null} label="NoSQL" /> */}
             <SkillItem Icon={DiJava} label="Java" />
             <SkillItem Icon={TbBrandCSharp} label="C#" />
             <SkillItem Icon={DiHtml5} label="HTML" />
@@ -115,15 +119,13 @@ const SkillsContent = () => {
         </div>
     );
 
-    // --- 2) Frameworks & Development
-    // React, Next.js, React Native, Redux, Node.js, Express.js,
-    // Laravel, Angular, PyTorch, TensorFlow, Bootstrap, CUDA,
-    // OpenGL, GLUT, GraphQL(basics), Tailwind CSS, three.js
+    // 2) Frameworks & Development
+    // React, Next.js, React Native, Redux, Node.js, Express.js, Laravel, Angular,
+    // PyTorch, TensorFlow, Bootstrap, OpenGL, GraphQL, Tailwind CSS, three.js
     const FrameworksContent = (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
             <SkillItem Icon={DiReact} label="React.js" />
             <SkillItem Icon={SiNextdotjs} label="Next.js" />
-            {/* React Native -> same icon as React or just text */}
             <SkillItem Icon={DiReact} label="React Native" />
             <SkillItem Icon={SiRedux} label="Redux" />
             <SkillItem Icon={DiNodejsSmall} label="Node.js" />
@@ -133,7 +135,6 @@ const SkillsContent = () => {
             <SkillItem Icon={SiPytorch} label="PyTorch" />
             <SkillItem Icon={SiTensorflow} label="TensorFlow" />
             <SkillItem Icon={SiBootstrap} label="Bootstrap" />
-            {/* CUDA (no direct icon in react-icons), so text only */}
             <SkillItem Icon={SiOpengl} label="OpenGL" />
             <SkillItem Icon={SiGraphql} label="GraphQL" />
             <SkillItem Icon={SiTailwindcss} label="Tailwind CSS" />
@@ -141,12 +142,11 @@ const SkillsContent = () => {
         </div>
     );
 
-    // --- 3) Cloud & Tools
-    // AWS, PostgreSQL, MySQL, MongoDB, Stripe API, Git, Firebase,
-    // Redis, NPM, Postman, JWT, Swagger, JIRA, Asana, Salesforce,
-    // ArcGIS, Docker
+    // 3) Cloud & Tools
+    // AWS, Docker, PostgreSQL, MySQL, MongoDB, Stripe API, Git, Firebase, Redis,
+    // NPM, Postman, JWT, Swagger, JIRA, Asana, Salesforce, ArcGIS
     const CloudContent = (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8 mt-4">
             <SkillItem Icon={LiaAws} label="AWS" />
             <SkillItem Icon={SiDocker} label="Docker" />
             <SkillItem Icon={SiPostgresql} label="PostgreSQL" />
@@ -163,12 +163,11 @@ const SkillsContent = () => {
             <SkillItem Icon={SiJira} label="JIRA" />
             <SkillItem Icon={SiAsana} label="Asana" />
             <SkillItem Icon={SiSalesforce} label="Salesforce" />
-            {/* ArcGIS by ESRI */}
             <SkillItem Icon={SiEsri} label="ArcGIS" />
         </div>
     );
 
-    // Choose which content to display based on sub-tab
+    // Logic for sub-tab content
     const renderSubTabContent = () => {
         switch (activeSubTab) {
             case "programming":
@@ -185,7 +184,7 @@ const SkillsContent = () => {
     return (
         <div>
             {/* Sub-Tab Buttons */}
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-4 mt-4 justify-center md:justify-start">
                 {SUB_TABS.map((tab) => (
                     <SubTabButton
                         key={tab.id}
