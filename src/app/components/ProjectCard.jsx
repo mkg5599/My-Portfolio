@@ -9,13 +9,11 @@ const ProjectCard = ({
   gitUrl,
   previewUrl,
   skills = [],
-  reverse = false, // for desktop layout only
+  reverse = false,
 }) => {
   return (
     <>
-      {/* Desktop/Tablet Version */}
       <div className="hidden md:flex flex-col md:flex-row rounded-xl overflow-hidden shadow-lg">
-        {/* Image Section */}
         {!reverse && (
           <div className="md:w-1/2">
             <img
@@ -26,7 +24,6 @@ const ProjectCard = ({
           </div>
         )}
 
-        {/* Text Section */}
         <div className="md:w-1/2 flex flex-col justify-start p-2">
           <h3
             className={`text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500 relative ${reverse ? "text-left" : "text-right"
@@ -94,12 +91,10 @@ const ProjectCard = ({
         )}
       </div>
 
-      {/* Mobile Version */}
       <div
         className="md:hidden relative rounded-xl overflow-hidden shadow-lg bg-cover bg-center"
         style={{ backgroundImage: `url(${imgUrl})` }}
       >
-        {/* Uniform dark overlay for all text */}
         <div className="bg-black bg-opacity-90 p-6">
           <h3 className="text-xl font-semibold text-white mb-4">{title}</h3>
           <p className="text-[#ADB7BE] text-start mb-4 ">{description}</p>

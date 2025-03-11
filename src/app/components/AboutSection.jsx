@@ -4,23 +4,18 @@ import TabButton from "./TabButton";
 import SkillsContent from "./SkillsContent";
 import { FaGraduationCap } from "react-icons/fa";
 
-//////////////////////////////////
-// TAB CONTENT DATA
-//////////////////////////////////
 const TAB_DATA = [
   {
     title: "Skills",
     id: "skills",
-    content: <SkillsContent />, // Renders sub-tabs with its own UI
+    content: <SkillsContent />,
   },
   {
     title: "Education",
     id: "education",
     content: (
       <div className="space-y-4 text-gray-200">
-        {/* Oregon State University */}
         <div className="bg-[#1e1e1e] rounded-lg p-4 md:p-6 shadow-lg shadow-blue-500/20">
-          {/* Header: Icon, College Name, GPA */}
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <div className="flex flex-col sm:flex-row items-center gap-2">
               <div className="text-blue-400 text-xl sm:text-3xl">
@@ -35,7 +30,6 @@ const TAB_DATA = [
             </span>
           </div>
 
-          {/* Degree & Duration */}
           <div className="mt-2 flex flex-col sm:flex-row sm:justify-between items-center gap-2">
             <p className="text-gray-300 font-medium text-sm sm:text-base text-center sm:text-left">
               Master of Science in Computer Science
@@ -45,15 +39,12 @@ const TAB_DATA = [
             </p>
           </div>
 
-          {/* Location */}
           <p className="text-xs sm:text-sm text-gray-400 mt-2 text-center sm:text-left">
             Corvallis, Oregon
           </p>
         </div>
 
-        {/* Indian Institute of Information Technology */}
         <div className="bg-[#1e1e1e] rounded-lg p-4 md:p-6 shadow-lg shadow-blue-500/20">
-          {/* Header: Icon, College Name, GPA */}
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <div className="flex flex-col sm:flex-row items-center gap-2">
               <div className="text-blue-400 text-xl sm:text-3xl">
@@ -68,7 +59,6 @@ const TAB_DATA = [
             </span>
           </div>
 
-          {/* Degree & Duration */}
           <div className="mt-2 flex flex-col sm:flex-row sm:justify-between items-center gap-2">
             <p className="text-gray-300 font-medium text-sm sm:text-base text-center sm:text-left">
               Bachelor of Technology in Computer Science Engineering
@@ -78,7 +68,6 @@ const TAB_DATA = [
             </p>
           </div>
 
-          {/* Location */}
           <p className="text-xs sm:text-sm text-gray-400 mt-2 text-center sm:text-left">
             Kota, Rajasthan
           </p>
@@ -118,13 +107,12 @@ const AboutSection = () => {
     <section className="relative flex items-center justify-center min-h-screen bg-transparent text-white" id="about">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center w-full">
-          {/* Section Title */}
+
           <h2 className="text-5xl font-bold text-white mb-8">About Me</h2>
           <p className="text-lg max-w-2xl">
             I am a software engineer and graduate student passionate about building interactive, scalable applications. With hands-on experience in full-stack and AI projects, I've led teams to develop modern web and mobile platforms while enjoying mentoring and staying ahead of emerging trends.
           </p>
 
-          {/* Top-Level Tabs (Skills, Education, Certs) */}
           <div className="flex flex-row justify-center mt-10 space-x-4">
             {TAB_DATA.map((item) => (
               <TabButton
@@ -137,7 +125,6 @@ const AboutSection = () => {
             ))}
           </div>
 
-          {/* Gradient Content Area */}
           <div className="mt-8 w-full max-w-3xl">
             {activeTabContent && (
               <div

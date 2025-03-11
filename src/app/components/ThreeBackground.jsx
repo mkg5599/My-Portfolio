@@ -6,9 +6,8 @@ const ThreeBackground = () => {
     const mountRef = useRef(null);
 
     useEffect(() => {
-        // Setup scene, camera, and renderer
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x000000); // Black background
+        scene.background = new THREE.Color(0x000000);
 
         const camera = new THREE.PerspectiveCamera(
             75,
@@ -39,17 +38,14 @@ const ThreeBackground = () => {
         const stars = new THREE.Points(starGeometry, starMaterial);
         scene.add(stars);
 
-        // Animate the scene
         const animate = () => {
             requestAnimationFrame(animate);
-            // Slowly rotate the stars for a subtle animation
             stars.rotation.x += 0.0005;
             stars.rotation.y += 0.0005;
             renderer.render(scene, camera);
         };
         animate();
 
-        // Update renderer and camera on window resize
         const handleResize = () => {
             renderer.setSize(window.innerWidth, window.innerHeight);
             camera.aspect = window.innerWidth / window.innerHeight;
@@ -57,15 +53,12 @@ const ThreeBackground = () => {
         };
         window.addEventListener('resize', handleResize);
 
-        // Change camera position on scroll for a dynamic effect
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            // Adjust the camera z-position based on scroll value
             camera.position.z = 1 + scrollY * 0.001;
         };
         window.addEventListener('scroll', handleScroll);
 
-        // Clean up on unmount
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('scroll', handleScroll);

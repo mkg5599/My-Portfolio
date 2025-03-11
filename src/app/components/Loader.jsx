@@ -5,7 +5,6 @@ const Loader = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-[#121212] z-50">
       <svg width="80" height="80" viewBox="0 0 100 100">
-        {/* Animated square border */}
         <rect
           x="5"
           y="5"

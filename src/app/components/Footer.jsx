@@ -8,7 +8,6 @@ const Footer = () => {
       <div className="container p-6 md:p-12 flex flex-col md:flex-row justify-between items-center">
         <Link href="/" className="flex items-center mb-4 md:mb-0">
           <svg width="40" height="40" viewBox="0 0 100 100">
-            {/* Static square border */}
             <rect
               x="5"
               y="5"
@@ -18,7 +17,6 @@ const Footer = () => {
               stroke="white"
               strokeWidth="2"
             />
-            {/* Centered bold letter "M" */}
             <text
               x="50"
               y="55"

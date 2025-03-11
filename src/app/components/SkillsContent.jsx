@@ -46,9 +46,6 @@ import { TbLetterC, TbBrandCSharp } from "react-icons/tb";
 import { LiaAws } from "react-icons/lia";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
-//////////////////////////////////
-// SUB-TAB BUTTON
-//////////////////////////////////
 const SubTabButton = ({ children, active, onClick }) => {
     return (
         <button
@@ -63,11 +60,7 @@ const SubTabButton = ({ children, active, onClick }) => {
     );
 };
 
-//////////////////////////////////
-// SKILL ITEM
-//////////////////////////////////
 function SkillItem({ Icon, label }) {
-    // Blue-Green glow effect & hover scale
     const iconClass = `
     text-5xl
     text-blue-500
@@ -88,9 +81,6 @@ function SkillItem({ Icon, label }) {
     );
 }
 
-//////////////////////////////////
-// DATA ARRAYS FOR SKILLS
-//////////////////////////////////
 const programmingSkills = [
     { Icon: TbLetterC, label: "C" },
     { Icon: SiCplusplus, label: "C++" },
@@ -142,18 +132,12 @@ const cloudSkills = [
     { Icon: SiEsri, label: "ArcGIS" },
 ];
 
-//////////////////////////////////
-// SUB-TABS ARRAY
-//////////////////////////////////
 const SUB_TABS = [
     { id: "programming", label: "Programming & Scripting" },
     { id: "frameworks", label: "Frameworks & Development" },
     { id: "cloud", label: "Cloud & Tools" },
 ];
 
-//////////////////////////////////
-// MAIN COMPONENT
-//////////////////////////////////
 const SkillsContent = () => {
     const [activeSubTab, setActiveSubTab] = useState("programming");
     const [expanded, setExpanded] = useState({
@@ -162,10 +146,8 @@ const SkillsContent = () => {
         cloud: false,
     });
 
-    // Number of items to show initially on mobile when collapsed
     const LIMIT = 5;
 
-    // Function to get current skills array based on activeSubTab
     const getCurrentSkills = () => {
         switch (activeSubTab) {
             case "programming":
@@ -187,7 +169,6 @@ const SkillsContent = () => {
 
     return (
         <div>
-            {/* Sub-Tab Buttons */}
             <div className="flex flex-wrap gap-4 mt-4 justify-center md:justify-start">
                 {SUB_TABS.map((tab) => (
                     <SubTabButton
@@ -195,8 +176,6 @@ const SkillsContent = () => {
                         active={activeSubTab === tab.id}
                         onClick={() => {
                             setActiveSubTab(tab.id);
-                            // Optionally reset expanded state for the new tab
-                            // setExpanded(prev => ({ ...prev, [tab.id]: false }));
                         }}
                     >
                         {tab.label}
@@ -204,9 +183,7 @@ const SkillsContent = () => {
                 ))}
             </div>
 
-            {/* Dynamic Content */}
             <div>
-                {/* Mobile View: Show limited skills with toggle */}
                 <div className="block md:hidden">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4 mt-4">
                         {mobileSkillsToShow.map((skill, idx) => (

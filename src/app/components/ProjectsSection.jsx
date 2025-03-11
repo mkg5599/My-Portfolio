@@ -122,7 +122,6 @@ const ProjectsSection = () => {
     project.tag.includes(tag)
   );
 
-  // Only show the first two projects initially unless showAll is true
   const displayedProjects = showAll
     ? filteredProjects
     : filteredProjects.slice(0, 2);
@@ -167,7 +166,6 @@ const ProjectsSection = () => {
         ))}
       </ul>
 
-      {/* Show More / Show Less Dropdown Button */}
       <div className="flex justify-center mt-8">
         {filteredProjects.length > 2 && (
           <button

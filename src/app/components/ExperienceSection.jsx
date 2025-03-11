@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-// EXPERIENCE DATA (inline for convenience)
 const EXPERIENCE_DATA = [
     {
         title: "Graduate Project Assistant | MS Thesis Project",
@@ -49,12 +48,9 @@ const EXPERIENCE_DATA = [
     },
 ];
 
-// Helper function to remove URL links and highlight keywords in bullet text
 const processBullet = (text) => {
-    // Remove any URLs enclosed in parentheses
     const noLinks = text.replace(/\(https?:\/\/[^\)]+\)/g, "");
 
-    // Define a list of keywords to highlight
     const keywords = [
         "React",
         "React Native",
@@ -84,20 +80,16 @@ const processBullet = (text) => {
         "15",
     ];
 
-    // Sort keywords by length descending
     keywords.sort((a, b) => b.length - a.length);
 
-    // Escape special regex characters
     const escapedKeywords = keywords.map((kw) =>
         kw.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")
     );
-    // Create regex that matches any keyword
+
     const regex = new RegExp(`(${escapedKeywords.join("|")})`, "g");
 
-    // Split text into parts by keywords
     const parts = noLinks.split(regex);
 
-    // Reassemble text, wrapping keywords in a span with highlight styles
     return parts.map((part, index) => {
         if (keywords.includes(part)) {
             return (
@@ -111,35 +103,18 @@ const processBullet = (text) => {
 };
 
 const ExperienceSection = () => {
-    // Track expanded state for mobile view for each experience item (by index)
     const [expandedItems, setExpandedItems] = useState({});
 
-    // Reorder experiences so that the Industry Level experience comes first.
     const sortedExperienceData = [
-        ...EXPERIENCE_DATA.filter((exp) =>
-            exp.company.includes("Industry Level")
-        ),
+        ...EXPERIENCE_DATA.filter((exp) => exp.company.includes("Industry Level")),
         ...EXPERIENCE_DATA.filter((exp) => !exp.company.includes("Industry Level")),
     ];
 
     return (
         <section id="experience" className="py-16 text-white">
             <div className="container mx-auto px-4 relative">
-                {/* Section Title */}
                 <h2 className="text-4xl font-bold mb-10 text-center">Experience</h2>
-
-                {/* Center Line (only on medium screens and above) */}
-                <div
-                    className="
-            hidden md:block 
-            absolute top-20 bottom-0 
-            border-r-2 border-gray-600 border-dotted
-            left-1/2 
-            -translate-x-1/2
-          "
-                />
-
-                {/* Timeline Items */}
+                <div className="hidden md:block absolute top-20 bottom-0 border-r-2 border-gray-600 border-dottedleft-1/2 -translate-x-1/2" />
                 <div className="flex flex-col space-y-12">
                     {sortedExperienceData.map((exp, i) => {
                         const isLeftSide = i % 2 === 0;
@@ -159,7 +134,6 @@ const ExperienceSection = () => {
                                 transition={{ duration: 0.6 }}
                                 viewport={{ once: true }}
                             >
-                                {/* Circle Indicator on the center line */}
                                 <div
                                     className={`
                     hidden
@@ -174,11 +148,9 @@ const ExperienceSection = () => {
                     border-black
                     ${isLeftSide
                                             ? "left-[-4.25%] -translate-x-1/2"
-                                            : "right-[-4.25%] translate-x-1/2"}
-                  `}
+                                            : "right-[-4.25%] translate-x-1/2"
+                                        }`}
                                 />
-
-                                {/* "Tab" Card */}
                                 <div
                                     className="
                     bg-gradient-to-br 
@@ -203,7 +175,6 @@ const ExperienceSection = () => {
                                     </p>
                                     <p className="text-sm text-gray-400 mb-3">{exp.dateRange}</p>
 
-                                    {/* Desktop view: Always show bullet list */}
                                     <div className="hidden md:block">
                                         <ul className="list-disc list-inside space-y-2 text-gray-200">
                                             {exp.bullets.map((bullet, idx) => (
@@ -212,7 +183,6 @@ const ExperienceSection = () => {
                                         </ul>
                                     </div>
 
-                                    {/* Mobile view: Toggle bullet list */}
                                     <div className="block md:hidden">
                                         {isExpanded ? (
                                             <ul className="list-disc list-inside space-y-2 text-gray-200">

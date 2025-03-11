@@ -13,12 +13,9 @@ const TabButton = ({ active, selectTab, children }) => {
 
   return (
     <button onClick={selectTab} className="relative">
-      {/* Tab Text */}
       <p className={`mr-3 text-lg ${buttonClasses}`}>
         {children}
       </p>
-
-      {/* Animated Underline */}
       <motion.div
         animate={active ? "active" : "default"}
         variants={variants}

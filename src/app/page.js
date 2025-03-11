@@ -15,7 +15,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Set a timer to hide the loader after 3 seconds (adjust as needed)
     const timer = setTimeout(() => {
       setLoading(false);
     }, 3000);
@@ -32,9 +31,7 @@ export default function Home() {
       <Navbar />
       <ThreeBackground />
       <div className="container mt-24 mx-auto px-12 py-4 z-10">
-
         <HeroSection />
-        {/* <AchievementsSection /> */}
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
