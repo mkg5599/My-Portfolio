@@ -90,15 +90,12 @@ const TAB_DATA = [
     title: "Certifications & Achievements",
     id: "certifications",
     content: (
-      <ul className="list-disc pl-4 space-y-2 text-gray-200">
-        <li>AWS Certified Cloud Practitioner</li>
+      <ul className="list-disc pl-4 space-y-2 text-gray-200 text-left">
         <li>
-          Organized technical workshops as an Event Coordinator in the
-          Software Engineering Club and OSU App Club
+          Achieved a <span className="font-bold">70% salary increase</span> at Q3 Technologies by consistently delivering <span className="font-bold">exceptional performance</span> and driving <span className="font-bold">impactful projects</span>.
         </li>
         <li>
-          Secured a 70% salary increase at Q3 Technologies based on
-          exceptional performance
+          Organized and led <span className="font-bold">technical workshops</span> as an Event Coordinator for the Software Engineering Club and OSU App Club, fostering <span className="font-bold">collaboration</span> and <span className="font-bold">professional growth</span>.
         </li>
       </ul>
     ),
@@ -124,10 +121,7 @@ const AboutSection = () => {
           {/* Section Title */}
           <h2 className="text-5xl font-bold text-white mb-8">About Me</h2>
           <p className="text-lg max-w-2xl">
-            I am a full stack software engineer and graduate student with a passion for
-            building interactive and scalable applications. My expertise spans React, Node.js,
-            Python, AWS, and various cutting-edge technologies. I thrive in collaborative
-            environments, enjoy mentoring, and love exploring emerging trends.
+            I am a software engineer and graduate student passionate about building interactive, scalable applications. With hands-on experience in full-stack and AI projects, I've led teams to develop modern web and mobile platforms while enjoying mentoring and staying ahead of emerging trends.
           </p>
 
           {/* Top-Level Tabs (Skills, Education, Certs) */}

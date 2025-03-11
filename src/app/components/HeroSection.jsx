@@ -25,9 +25,10 @@ const HeroSection = () => {
             </h1>
             <TypeAnimation
               sequence={[
-                "Web Developer", 1500,
-                "Mobile Developer", 1500,
-                "Full Stack Engineer", 1500,
+                "Lead Software Engineer", 1500,
+                "Full-Stack Engineer", 1500,
+                "Machine Learning Engineer", 1500,
+                "Technical Mentor", 1500,
               ]}
               wrapper="span"
               speed={50}
@@ -35,7 +36,7 @@ const HeroSection = () => {
               className="block text-2xl sm:text-3xl text-white mb-6"
             />
             <p className="text-white text-lg mb-8">
-              I craft modern digital experiences that blend creativity with technology.
+              I engineer robust, scalable digital solutions from full-stack applications to advanced AI systems - that drive innovation and empower teams.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
