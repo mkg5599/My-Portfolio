@@ -1,38 +1,99 @@
 import React from "react";
-import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
+const ProjectCard = ({
+  imgUrl,
+  title,
+  description,
+  gitUrl,
+  previewUrl,
+  skills = [],
+  reverse = false, // if true, image on right, content on left
+}) => {
   return (
-    <div>
-      <div
-        className="h-52 md:h-72 rounded-t-xl relative group overflow-hidden"
-      >
-        <img
-          src={imgUrl}
-          alt="Project Image"
-          className="w-full h-full object-cover" // Ensures uniform scaling
-        />
-        <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 ">
+    <div className="flex flex-col md:flex-row rounded-xl overflow-hidden shadow-lg">
+      {/* Image Section */}
+      {!reverse && (
+        <div className="md:w-1/2 hover:z-20">
+          <img
+            src={imgUrl}
+            alt={title}
+            className="w-full h-80 object-cover filter grayscale hover:grayscale-0 transition duration-300"
+          />
+        </div>
+      )}
+
+      {/* Text Section */}
+      <div className="md:w-1/2 flex flex-col justify-start p-2">
+        {/* Title with gradient text */}
+        <h3
+          className={`text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500 ${reverse ? "text-left" : "text-right"
+            }`}
+        >
+          {title}
+        </h3>
+
+        {/* Description container with gradient border effect */}
+        <div
+          className={`mt-16 relative z-10 w-[120%] mx-auto ${!reverse ? " -ml-[20%]" : ""
+            }`}
+        >
+          <div className={`bg-gradient-to-br 
+                    from-[#1f1f1f] 
+                    to-[#2a2a2a] 
+                    rounded-lg 
+                    p-2
+                    shadow-xl 
+                    ${reverse ? "shadow-blue-600/20" : "shadow-green-600/20"}`}>
+            <div>
+              <p className="text-[#ADB7BE] text-left">{description}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mt-2 justify-center">
+          {skills.map((skill, index) => (
+            <span
+              key={index}
+              className="bg-transparent text-[#ADB7BE] text-sm font-medium px-2 py-1 rounded"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex gap-4 mt-4 justify-center">
           <Link
             href={gitUrl}
-            className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
+            className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
           >
-            <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
+            <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+              <CodeBracketIcon className="h-6 w-6 text-[#ADB7BE]" />
+            </div>
           </Link>
           <Link
             href={previewUrl}
-            className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
+            className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
           >
-            <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
+            <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+              <EyeIcon className="h-6 w-6 text-[#ADB7BE]" />
+            </div>
           </Link>
         </div>
       </div>
-      <div className="text-white rounded-b-xl mt-3 bg-[#181818]py-6 px-4">
-        <h5 className="text-xl font-semibold mb-2">{title}</h5>
-        <p className="text-[#ADB7BE]">{description}</p>
-      </div>
-    </div >
+
+      {/* Alternate layout: image on right */}
+      {reverse && (
+        <div className="md:w-1/2 hover:z-20">
+          <img
+            src={imgUrl}
+            alt={title}
+            className="w-full h-80 object-cover filter grayscale hover:grayscale-0 transition duration-300"
+          />
+        </div>
+      )}
+    </div>
   );
 };
 

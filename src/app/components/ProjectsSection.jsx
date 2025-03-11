@@ -112,7 +112,7 @@ const ProjectsSection = () => {
         />
       </div>
 
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
+      <ul ref={ref} className="grid md:grid-cols-1 gap-8 md:gap-12">
         {filteredProjects.map((project, index) => (
           <motion.li
             key={project.id}
@@ -127,6 +127,15 @@ const ProjectsSection = () => {
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
+              skills={[
+                "React.js",
+                "React Native",
+                "Redux",
+                "TypeScript",
+                "Node.js",
+                "AWS"
+              ]}
+              reverse={index % 2 === 1}
             />
           </motion.li>
         ))}

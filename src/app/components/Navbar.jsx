@@ -6,18 +6,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 
 const navLinks = [
-  {
-    title: "About",
-    path: "#about",
-  },
-  {
-    title: "Projects",
-    path: "#projects",
-  },
-  {
-    title: "Contact",
-    path: "#contact",
-  },
+  { title: "About", path: "#about" },
+  { title: "Projects", path: "#projects" },
+  { title: "Contact", path: "#contact" },
 ];
 
 const Navbar = () => {
@@ -26,11 +17,33 @@ const Navbar = () => {
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-20 bg-[#121212] bg-opacity-100">
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
-        <Link
-          href={"/"}
-          className="text-2xl md:text-5xl text-white font-semibold"
-        >
-          LOGO
+        {/* Header Logo as a square */}
+        <Link href="/" className="flex items-center">
+          <svg width="60" height="60" viewBox="0 0 100 100">
+            {/* Static square border */}
+            <rect
+              x="5"
+              y="5"
+              width="90"
+              height="90"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+            />
+            {/* Centered bold letter "M" */}
+            <text
+              x="50"
+              y="55"
+              dominantBaseline="middle"
+              textAnchor="middle"
+              fill="white"
+              fontSize="50"
+              fontWeight="bold"
+              fontFamily="Helvetica, Arial, sans-serif"
+            >
+              M
+            </text>
+          </svg>
         </Link>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (

@@ -1,49 +1,19 @@
+"use client";
 import React, { useState } from "react";
-// React Icons
 import {
-    DiPython,
-    DiJavascript1,
-    DiNodejsSmall,
-    DiReact,
-    DiMongodb,
-    DiGit,
-    DiPhp,
-    DiCss3,
-    DiHtml5,
-    DiJava,
+    DiPython, DiJavascript1, DiNodejsSmall, DiReact, DiMongodb,
+    DiGit, DiPhp, DiCss3, DiHtml5, DiJava
 } from "react-icons/di";
 import {
-    SiCplusplus,
-    SiTypescript,
-    SiExpress,
-    SiRedux,
-    SiLaravel,
-    SiAngular,
-    SiPytorch,
-    SiTensorflow,
-    SiPostgresql,
-    SiMysql,
-    SiFirebase,
-    SiRedis,
-    SiNextdotjs,
-    SiBootstrap,
-    SiGraphql,
-    SiTailwindcss,
-    SiThreedotjs,
-    SiStripe,
-    SiNpm,
-    SiPostman,
-    SiJsonwebtokens,
-    SiSwagger,
-    SiJira,
-    SiAsana,
-    SiSalesforce,
-    SiEsri,
-    SiDocker,
-    SiOpengl,
+    SiCplusplus, SiTypescript, SiExpress, SiRedux, SiLaravel,
+    SiAngular, SiPytorch, SiTensorflow, SiPostgresql, SiMysql,
+    SiFirebase, SiRedis, SiNextdotjs, SiBootstrap, SiGraphql,
+    SiTailwindcss, SiThreedotjs, SiStripe, SiNpm, SiPostman,
+    SiJsonwebtokens, SiSwagger, SiJira, SiAsana, SiSalesforce,
+    SiEsri, SiDocker, SiOpengl
 } from "react-icons/si";
 import { TbLetterC, TbBrandCSharp } from "react-icons/tb";
-import { LiaAws } from "react-icons/lia"; // or SiAmazonaws
+import { LiaAws } from "react-icons/lia";
 
 //////////////////////////////////
 // SUB-TAB BUTTON
@@ -53,7 +23,7 @@ const SubTabButton = ({ children, active, onClick }) => {
         <button
             onClick={onClick}
             className={`px-4 py-2 rounded-md text-sm font-semibold transition-colors ${active
-                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                ? "bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-lg"
                 : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                 }`}
         >
@@ -75,13 +45,14 @@ const SUB_TABS = [
 // SKILL ITEM
 //////////////////////////////////
 function SkillItem({ Icon, label }) {
-    // Pink glow effect & hover scale
+    // Blue-Green glow effect & hover scale
     const iconClass = `
     text-5xl
-    text-pink-500
-    drop-shadow-[0_0_8px_rgba(236,72,153,0.8)]
+    text-blue-500
+    drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]
+    hover:text-green-400
     hover:scale-110
-    transition-transform
+    transition-transform duration-300
   `;
 
     return (
@@ -91,7 +62,7 @@ function SkillItem({ Icon, label }) {
             ) : (
                 <span className="text-lg font-semibold">{label}</span>
             )}
-            <span className="mt-1">{label}</span>
+            <span className="mt-1 text-gray-300">{label}</span>
         </div>
     );
 }
@@ -102,8 +73,7 @@ function SkillItem({ Icon, label }) {
 const SkillsContent = () => {
     const [activeSubTab, setActiveSubTab] = useState("programming");
 
-    // 1) Programming & Scripting
-    // C, C++, Python, TypeScript, JavaScript, PHP, Java, C#, HTML, CSS
+    // Content sections
     const ProgrammingContent = (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
             <SkillItem Icon={TbLetterC} label="C" />
@@ -119,9 +89,6 @@ const SkillsContent = () => {
         </div>
     );
 
-    // 2) Frameworks & Development
-    // React, Next.js, React Native, Redux, Node.js, Express.js, Laravel, Angular,
-    // PyTorch, TensorFlow, Bootstrap, OpenGL, GraphQL, Tailwind CSS, three.js
     const FrameworksContent = (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
             <SkillItem Icon={DiReact} label="React.js" />
@@ -142,9 +109,6 @@ const SkillsContent = () => {
         </div>
     );
 
-    // 3) Cloud & Tools
-    // AWS, Docker, PostgreSQL, MySQL, MongoDB, Stripe API, Git, Firebase, Redis,
-    // NPM, Postman, JWT, Swagger, JIRA, Asana, Salesforce, ArcGIS
     const CloudContent = (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8 mt-4">
             <SkillItem Icon={LiaAws} label="AWS" />

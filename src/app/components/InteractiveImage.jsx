@@ -1,40 +1,32 @@
-// components/InteractiveImage.jsx
-import { useEffect, useRef } from 'react';
-import Script from 'next/script';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
 
 const InteractiveImage = () => {
-    const vantaRef = useRef(null);
-    useEffect(() => {
-        // Ensure window and VANTA are available (i.e. on client side)
-        if (typeof window !== 'undefined' && window.VANTA && vantaRef.current) {
-            const vantaEffect = window.VANTA.BIRDS({
-                el: vantaRef.current,
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                minHeight: 200.0,
-                minWidth: 200.0,
-                scale: 1.0,
-                scaleMobile: 1.0,
-            });
-
-            // Cleanup on unmount
-            return () => {
-                if (vantaEffect) vantaEffect.destroy();
-            };
-        }
-    }, []);
-
     return (
-        <>
-            {/* Load the external scripts before the component renders */}
-            <Script src="/three.r134.min.js" strategy="beforeInteractive" />
-            <Script src="/vanta.birds.min.js" strategy="beforeInteractive" />
-
-            <div ref={vantaRef} style={{ width: '100%', height: '100vh' }}>
-                {/* Your interactive image or other content can go here */}
-            </div>
-        </>
+        <motion.div
+            whileHover={{ scale: 1.05, rotate: 5 }}
+            whileTap={{ scale: 0.95, rotate: -5 }}
+            className="relative w-64 h-64 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-green-500 flex items-center justify-center"
+        >
+            {/* Abstract SVG Graphic */}
+            <svg viewBox="0 0 100 100" className="w-40 h-40">
+                <defs>
+                    <linearGradient id="graphicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#ffffff" />
+                        <stop offset="100%" stopColor="#000000" />
+                    </linearGradient>
+                </defs>
+                <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="url(#graphicGradient)"
+                    strokeWidth="5"
+                    fill="none"
+                />
+            </svg>
+        </motion.div>
     );
 };
 

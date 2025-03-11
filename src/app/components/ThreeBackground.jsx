@@ -69,7 +69,7 @@ const ThreeBackground = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('scroll', handleScroll);
-            mountRef.current.removeChild(renderer.domElement);
+            mountRef.current?.removeChild(renderer.domElement);
         };
     }, []);
 

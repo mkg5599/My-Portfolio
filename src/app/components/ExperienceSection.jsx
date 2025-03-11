@@ -99,7 +99,7 @@ const ExperienceSection = () => {
                     w-6
                     h-6
                     rounded-full
-                    bg-gradient-to-tr from-pink-500 to-purple-500
+                    bg-gradient-to-tr from-blue-500 to-green-500
                     border-4
                     border-black
                     ${isLeftSide
@@ -119,10 +119,10 @@ const ExperienceSection = () => {
                     rounded-lg 
                     p-6 
                     shadow-xl 
-                    shadow-pink-600/20
+                    shadow-blue-600/20
                   "
                                 >
-                                    <h3 className="text-xl font-semibold text-pink-400 mb-1">
+                                    <h3 className="text-xl font-semibold text-blue-400 mb-1">
                                         {exp.title}
                                     </h3>
                                     <p className="text-sm text-gray-300">
