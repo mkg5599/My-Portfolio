@@ -10,67 +10,107 @@ const projectsData = [
     id: 1,
     title: "Freedo Rental Services",
     description:
-      "Led the frontend development for Freedo Rental Services, a web and mobile application for bike rentals across India. Implemented secure payments, location-based availability (React, React Native, TypeScript, Node.js, Firebase, PostgreSQL, Redis, AWS). Utilized Agile methodologies and optimized app performance.",
-    image: "/images/projects/freedo.png", // Update this path to your real screenshot
+      "Freedo Rental Services is an innovative platform that streamlines bike rentals across India by offering secure payment integration and real-time, location-based availability. Built with modern technologies such as React, React Native, TypeScript, Node.js, Firebase, PostgreSQL, Redis, and AWS, the platform delivers a seamless and scalable user experience.",
+    image: "/images/projects/freedo.png",
     tag: ["All", "Web", "Mobile"],
-    gitUrl: "#", // If no public repo, keep "#"
+    gitUrl: "#",
     previewUrl: "https://freedo.rentals/",
+    skills: [
+      "React",
+      "React Native",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Firebase",
+      "PostgreSQL",
+      "Redis",
+      "AWS",
+    ],
   },
   // NEW PROJECT 2
   {
     id: 2,
     title: "SpeedScore",
     description:
-      "Developed the mobile application for SpeedScore, a platform for speedgolf enthusiasts to track rounds, view course maps, and engage with the community. Built using the MERN stack (MongoDB, Express, React, Node.js) with Redux Thunk, AWS, and Agile methodologies.",
-    image: "/images/projects/speedscore.png", // Update this path to your real screenshot
+      "SpeedScore is a dynamic application designed for speedgolf enthusiasts. It enables users to track rounds, view detailed course maps, and connect with a vibrant community. Developed using the MERN stack, Redux Thunk, and AWS, the application emphasizes high performance and an engaging user experience.",
+    image: "/images/projects/speedscore.png",
     tag: ["All", "Web", "Mobile"],
     gitUrl: "#",
     previewUrl: "https://www.speedscore.org/",
+    skills: [
+      "React",
+      "React Native",
+      "TypeScript",
+      "MongoDB",
+      "Express",
+      "Node.js",
+      "Redux Thunk",
+      "AWS",
+    ],
   },
   {
     id: 3,
     title: "Recommendation System",
     description:
-      "AI-powered recommendation engine using CNN, NLP, and TF-IDF for personalized product suggestions. Bachelor's Capstone Project.",
+      "The Recommendation System is an AI-powered engine that leverages convolutional neural networks, natural language processing, and TF-IDF techniques to deliver personalized product suggestions. This system enhances user engagement through data-driven, tailored recommendations.",
     image: "/images/projects/recommendation.png",
     tag: ["All"],
     gitUrl: "#",
     previewUrl: "#",
+    skills: [
+      "Python",
+      "TensorFlow",
+      "CNN",
+      "NLP",
+      "TF-IDF",
+      "Data Processing",
+    ],
   },
   {
     id: 4,
     title: "ML Projects",
     description:
-      "Built ML models for housing price prediction, sentiment analysis, and binary classification using Python, Scikit-learn, TensorFlow, and NLP, optimizing accuracy and efficiency.",
+      "ML Projects encompass a suite of advanced machine learning models addressing challenges such as housing price prediction, sentiment analysis, and binary classification. Utilizing Python, Scikit-learn, TensorFlow, and NLP, these models are optimized for accuracy and efficiency, providing robust data-driven insights.",
     image: "/images/projects/housing-price.png",
     tag: ["All"],
     gitUrl: "https://github.com/mkg5599/Machine-Learning-Projects",
-    previewUrl: "https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques",
+    previewUrl:
+      "https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques",
+    skills: [
+      "Python",
+      "Scikit-learn",
+      "TensorFlow",
+      "NLP",
+      "Data Processing",
+    ],
   },
   {
     id: 5,
     title: "Parallel Programming Projects",
     description:
-      "Accelerated computations using MPI, OpenMP, and CUDA for various HPC tasks.",
+      "Parallel Programming Projects showcase high-performance computing solutions that accelerate complex computations through advanced parallel programming techniques. Using MPI, OpenMP, OpenGL, GLUT and CUDA, these projects are optimized for resource-intensive applications and deliver significant performance enhancements.",
     image: "/images/projects/parallelprogramming.png",
     tag: ["All"],
     gitUrl: "#",
     previewUrl: "#",
+    skills: ["C++", "CUDA", "MPI", "OpenGL", "GLUT"],
   },
   {
     id: 6,
     title: "Side Projects",
     description:
-      "Developed various software solutions, including a trust-based social game, a library and contact management system in C++, and a centralized blood donation platform using PHP and MySQL.",
-    image: "/images/projects/other.jpg",
+      "Side Projects highlight a diverse portfolio of software solutions, including a trust-based social game, a comprehensive library and contact management system in C++, and a centralized blood donation platform built with PHP and MySQL. These projects illustrate a broad spectrum of technology implementations and innovative software development approaches.",
+    image: "/images/projects/other.png",
     tag: ["All"],
     gitUrl: "https://github.com/mkg5599?tab=repositories",
     previewUrl: "#",
+    skills: ["C++", "C#", "PHP", "MySQL", "JavaScript"],
   },
 ];
 
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
+  const [showAll, setShowAll] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -81,6 +121,11 @@ const ProjectsSection = () => {
   const filteredProjects = projectsData.filter((project) =>
     project.tag.includes(tag)
   );
+
+  // Only show the first two projects initially unless showAll is true
+  const displayedProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, 2);
 
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
@@ -93,27 +138,15 @@ const ProjectsSection = () => {
         My Projects
       </h2>
 
-      {/* Tag Buttons: All, Web, Mobile */}
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
-        />
-      </div>
+      {/* Uncomment or update your tag buttons if needed */}
+      {/* <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+        <ProjectTag onClick={handleTagChange} name="All" isSelected={tag === "All"} />
+        <ProjectTag onClick={handleTagChange} name="Web" isSelected={tag === "Web"} />
+        <ProjectTag onClick={handleTagChange} name="Mobile" isSelected={tag === "Mobile"} />
+      </div> */}
 
       <ul ref={ref} className="grid md:grid-cols-1 gap-8 md:gap-12">
-        {filteredProjects.map((project, index) => (
+        {displayedProjects.map((project, index) => (
           <motion.li
             key={project.id}
             variants={cardVariants}
@@ -127,19 +160,41 @@ const ProjectsSection = () => {
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
-              skills={[
-                "React.js",
-                "React Native",
-                "Redux",
-                "TypeScript",
-                "Node.js",
-                "AWS"
-              ]}
+              skills={project.skills}
               reverse={index % 2 === 1}
             />
           </motion.li>
         ))}
       </ul>
+
+      {/* Show More / Show Less Dropdown Button */}
+      <div className="flex justify-center mt-8">
+        {filteredProjects.length > 2 && (
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="flex items-center text-white hover:text-gray-300 transition-colors"
+          >
+            <span className="mr-2">
+              {showAll ? "Show Less" : "Show More"}
+            </span>
+            <svg
+              className={`w-6 h-6 transform transition-transform duration-300 ${showAll ? "rotate-180" : ""
+                }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+        )}
+      </div>
     </section>
   );
 };

@@ -1,19 +1,50 @@
 "use client";
 import React, { useState } from "react";
 import {
-    DiPython, DiJavascript1, DiNodejsSmall, DiReact, DiMongodb,
-    DiGit, DiPhp, DiCss3, DiHtml5, DiJava
+    DiPython,
+    DiJavascript1,
+    DiNodejsSmall,
+    DiReact,
+    DiMongodb,
+    DiGit,
+    DiPhp,
+    DiCss3,
+    DiHtml5,
+    DiJava,
 } from "react-icons/di";
 import {
-    SiCplusplus, SiTypescript, SiExpress, SiRedux, SiLaravel,
-    SiAngular, SiPytorch, SiTensorflow, SiPostgresql, SiMysql,
-    SiFirebase, SiRedis, SiNextdotjs, SiBootstrap, SiGraphql,
-    SiTailwindcss, SiThreedotjs, SiStripe, SiNpm, SiPostman,
-    SiJsonwebtokens, SiSwagger, SiJira, SiAsana, SiSalesforce,
-    SiEsri, SiDocker, SiOpengl
+    SiCplusplus,
+    SiTypescript,
+    SiExpress,
+    SiRedux,
+    SiLaravel,
+    SiAngular,
+    SiPytorch,
+    SiTensorflow,
+    SiPostgresql,
+    SiMysql,
+    SiFirebase,
+    SiRedis,
+    SiNextdotjs,
+    SiBootstrap,
+    SiGraphql,
+    SiTailwindcss,
+    SiThreedotjs,
+    SiStripe,
+    SiNpm,
+    SiPostman,
+    SiJsonwebtokens,
+    SiSwagger,
+    SiJira,
+    SiAsana,
+    SiSalesforce,
+    SiEsri,
+    SiOpengl,
+    SiDocker
 } from "react-icons/si";
 import { TbLetterC, TbBrandCSharp } from "react-icons/tb";
 import { LiaAws } from "react-icons/lia";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 //////////////////////////////////
 // SUB-TAB BUTTON
@@ -33,15 +64,6 @@ const SubTabButton = ({ children, active, onClick }) => {
 };
 
 //////////////////////////////////
-// SUB-TABS
-//////////////////////////////////
-const SUB_TABS = [
-    { id: "programming", label: "Programming & Scripting" },
-    { id: "frameworks", label: "Frameworks & Development" },
-    { id: "cloud", label: "Cloud & Tools" },
-];
-
-//////////////////////////////////
 // SKILL ITEM
 //////////////////////////////////
 function SkillItem({ Icon, label }) {
@@ -54,7 +76,6 @@ function SkillItem({ Icon, label }) {
     hover:scale-110
     transition-transform duration-300
   `;
-
     return (
         <div className="flex flex-col items-center justify-center text-center">
             {Icon ? (
@@ -68,82 +89,101 @@ function SkillItem({ Icon, label }) {
 }
 
 //////////////////////////////////
+// DATA ARRAYS FOR SKILLS
+//////////////////////////////////
+const programmingSkills = [
+    { Icon: TbLetterC, label: "C" },
+    { Icon: SiCplusplus, label: "C++" },
+    { Icon: DiPython, label: "Python" },
+    { Icon: SiTypescript, label: "TypeScript" },
+    { Icon: DiJavascript1, label: "JavaScript" },
+    { Icon: DiPhp, label: "PHP" },
+    { Icon: DiJava, label: "Java" },
+    { Icon: TbBrandCSharp, label: "C#" },
+    { Icon: DiHtml5, label: "HTML" },
+    { Icon: DiCss3, label: "CSS" },
+];
+
+const frameworksSkills = [
+    { Icon: DiReact, label: "React.js" },
+    { Icon: SiNextdotjs, label: "Next.js" },
+    { Icon: DiReact, label: "React Native" },
+    { Icon: SiRedux, label: "Redux" },
+    { Icon: DiNodejsSmall, label: "Node.js" },
+    { Icon: SiExpress, label: "Express.js" },
+    { Icon: SiLaravel, label: "Laravel" },
+    { Icon: SiAngular, label: "Angular" },
+    { Icon: SiPytorch, label: "PyTorch" },
+    { Icon: SiTensorflow, label: "TensorFlow" },
+    { Icon: SiBootstrap, label: "Bootstrap" },
+    { Icon: SiOpengl, label: "OpenGL" },
+    { Icon: SiGraphql, label: "GraphQL" },
+    { Icon: SiTailwindcss, label: "Tailwind CSS" },
+    { Icon: SiThreedotjs, label: "three.js" },
+];
+
+const cloudSkills = [
+    { Icon: LiaAws, label: "AWS" },
+    { Icon: SiDocker, label: "Docker" },
+    { Icon: SiPostgresql, label: "PostgreSQL" },
+    { Icon: SiMysql, label: "MySQL" },
+    { Icon: DiMongodb, label: "MongoDB" },
+    { Icon: SiStripe, label: "Stripe API" },
+    { Icon: DiGit, label: "Git" },
+    { Icon: SiFirebase, label: "Firebase" },
+    { Icon: SiRedis, label: "Redis" },
+    { Icon: SiNpm, label: "NPM" },
+    { Icon: SiPostman, label: "Postman" },
+    { Icon: SiJsonwebtokens, label: "JWT" },
+    { Icon: SiSwagger, label: "Swagger" },
+    { Icon: SiJira, label: "JIRA" },
+    { Icon: SiAsana, label: "Asana" },
+    { Icon: SiSalesforce, label: "Salesforce" },
+    { Icon: SiEsri, label: "ArcGIS" },
+];
+
+//////////////////////////////////
+// SUB-TABS ARRAY
+//////////////////////////////////
+const SUB_TABS = [
+    { id: "programming", label: "Programming & Scripting" },
+    { id: "frameworks", label: "Frameworks & Development" },
+    { id: "cloud", label: "Cloud & Tools" },
+];
+
+//////////////////////////////////
 // MAIN COMPONENT
 //////////////////////////////////
 const SkillsContent = () => {
     const [activeSubTab, setActiveSubTab] = useState("programming");
+    const [expanded, setExpanded] = useState({
+        programming: false,
+        frameworks: false,
+        cloud: false,
+    });
 
-    // Content sections
-    const ProgrammingContent = (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
-            <SkillItem Icon={TbLetterC} label="C" />
-            <SkillItem Icon={SiCplusplus} label="C++" />
-            <SkillItem Icon={DiPython} label="Python" />
-            <SkillItem Icon={SiTypescript} label="TypeScript" />
-            <SkillItem Icon={DiJavascript1} label="JavaScript" />
-            <SkillItem Icon={DiPhp} label="PHP" />
-            <SkillItem Icon={DiJava} label="Java" />
-            <SkillItem Icon={TbBrandCSharp} label="C#" />
-            <SkillItem Icon={DiHtml5} label="HTML" />
-            <SkillItem Icon={DiCss3} label="CSS" />
-        </div>
-    );
+    // Number of items to show initially on mobile when collapsed
+    const LIMIT = 5;
 
-    const FrameworksContent = (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
-            <SkillItem Icon={DiReact} label="React.js" />
-            <SkillItem Icon={SiNextdotjs} label="Next.js" />
-            <SkillItem Icon={DiReact} label="React Native" />
-            <SkillItem Icon={SiRedux} label="Redux" />
-            <SkillItem Icon={DiNodejsSmall} label="Node.js" />
-            <SkillItem Icon={SiExpress} label="Express.js" />
-            <SkillItem Icon={SiLaravel} label="Laravel" />
-            <SkillItem Icon={SiAngular} label="Angular" />
-            <SkillItem Icon={SiPytorch} label="PyTorch" />
-            <SkillItem Icon={SiTensorflow} label="TensorFlow" />
-            <SkillItem Icon={SiBootstrap} label="Bootstrap" />
-            <SkillItem Icon={SiOpengl} label="OpenGL" />
-            <SkillItem Icon={SiGraphql} label="GraphQL" />
-            <SkillItem Icon={SiTailwindcss} label="Tailwind CSS" />
-            <SkillItem Icon={SiThreedotjs} label="three.js" />
-        </div>
-    );
-
-    const CloudContent = (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8 mt-4">
-            <SkillItem Icon={LiaAws} label="AWS" />
-            <SkillItem Icon={SiDocker} label="Docker" />
-            <SkillItem Icon={SiPostgresql} label="PostgreSQL" />
-            <SkillItem Icon={SiMysql} label="MySQL" />
-            <SkillItem Icon={DiMongodb} label="MongoDB" />
-            <SkillItem Icon={SiStripe} label="Stripe API" />
-            <SkillItem Icon={DiGit} label="Git" />
-            <SkillItem Icon={SiFirebase} label="Firebase" />
-            <SkillItem Icon={SiRedis} label="Redis" />
-            <SkillItem Icon={SiNpm} label="NPM" />
-            <SkillItem Icon={SiPostman} label="Postman" />
-            <SkillItem Icon={SiJsonwebtokens} label="JWT" />
-            <SkillItem Icon={SiSwagger} label="Swagger" />
-            <SkillItem Icon={SiJira} label="JIRA" />
-            <SkillItem Icon={SiAsana} label="Asana" />
-            <SkillItem Icon={SiSalesforce} label="Salesforce" />
-            <SkillItem Icon={SiEsri} label="ArcGIS" />
-        </div>
-    );
-
-    // Logic for sub-tab content
-    const renderSubTabContent = () => {
+    // Function to get current skills array based on activeSubTab
+    const getCurrentSkills = () => {
         switch (activeSubTab) {
             case "programming":
-                return ProgrammingContent;
+                return programmingSkills;
             case "frameworks":
-                return FrameworksContent;
+                return frameworksSkills;
             case "cloud":
-                return CloudContent;
+                return cloudSkills;
             default:
-                return ProgrammingContent;
+                return programmingSkills;
         }
     };
+
+    const currentSkills = getCurrentSkills();
+    const isExpanded = expanded[activeSubTab];
+    const mobileSkillsToShow = isExpanded
+        ? currentSkills
+        : currentSkills.slice(0, LIMIT);
 
     return (
         <div>
@@ -153,7 +193,11 @@ const SkillsContent = () => {
                     <SubTabButton
                         key={tab.id}
                         active={activeSubTab === tab.id}
-                        onClick={() => setActiveSubTab(tab.id)}
+                        onClick={() => {
+                            setActiveSubTab(tab.id);
+                            // Optionally reset expanded state for the new tab
+                            // setExpanded(prev => ({ ...prev, [tab.id]: false }));
+                        }}
                     >
                         {tab.label}
                     </SubTabButton>
@@ -161,7 +205,44 @@ const SkillsContent = () => {
             </div>
 
             {/* Dynamic Content */}
-            {renderSubTabContent()}
+            <div>
+                {/* Mobile View: Show limited skills with toggle */}
+                <div className="block md:hidden">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4 mt-4">
+                        {mobileSkillsToShow.map((skill, idx) => (
+                            <SkillItem key={idx} Icon={skill.Icon} label={skill.label} />
+                        ))}
+                    </div>
+                    {currentSkills.length > LIMIT && (
+                        <div className="flex justify-center">
+                            <button
+                                onClick={() =>
+                                    setExpanded((prev) => ({
+                                        ...prev,
+                                        [activeSubTab]: !prev[activeSubTab],
+                                    }))
+                                }
+                                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                            >
+                                {isExpanded ? "Show Less" : "Show More"}
+                                {isExpanded ? (
+                                    <FiChevronUp className="ml-1" />
+                                ) : (
+                                    <FiChevronDown className="ml-1" />
+                                )}
+                            </button>
+                        </div>
+                    )}
+                </div>
+                {/* Desktop View: Always show all skills */}
+                <div className="hidden md:block">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4 mt-4">
+                        {currentSkills.map((skill, idx) => (
+                            <SkillItem key={idx} Icon={skill.Icon} label={skill.label} />
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

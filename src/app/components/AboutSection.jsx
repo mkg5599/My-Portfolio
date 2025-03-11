@@ -17,65 +17,71 @@ const TAB_DATA = [
     title: "Education",
     id: "education",
     content: (
-      <div className="space-y-6 text-gray-200">
+      <div className="space-y-4 text-gray-200">
         {/* Oregon State University */}
-        <div className="bg-[#1e1e1e] rounded-lg p-6 shadow-lg shadow-blue-500/20">
-          <div className="flex justify-between items-center">
-            {/* Left: College Name + Icon */}
-            <div className="flex items-center gap-3">
-              <div className="text-blue-400 text-3xl">
+        <div className="bg-[#1e1e1e] rounded-lg p-4 md:p-6 shadow-lg shadow-blue-500/20">
+          {/* Header: Icon, College Name, GPA */}
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className="flex flex-col sm:flex-row items-center gap-2">
+              <div className="text-blue-400 text-xl sm:text-3xl">
                 <FaGraduationCap />
               </div>
-              <h3 className="text-xl font-semibold text-white">
+              <h3 className="text-lg sm:text-xl font-semibold text-white text-center sm:text-left">
                 Oregon State University
               </h3>
             </div>
-            {/* Right: GPA */}
-            <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-opacity-90 text-gray-900 px-3 py-1 rounded-full text-xs font-bold shadow-md">
+            <span className="mt-2 sm:mt-0 bg-gradient-to-r from-blue-500 to-green-500 bg-opacity-90 text-gray-900 px-2 sm:px-3 py-1 rounded-full text-xs font-bold shadow-md">
               GPA: 4.00 / 4.00
             </span>
           </div>
 
           {/* Degree & Duration */}
-          <div className="mt-2 flex flex-col sm:flex-row sm:justify-between">
-            <p className="text-gray-300 font-medium">
+          <div className="mt-2 flex flex-col sm:flex-row sm:justify-between items-center gap-2">
+            <p className="text-gray-300 font-medium text-sm sm:text-base text-center sm:text-left">
               Master of Science in Computer Science
             </p>
-            <p className="text-sm text-gray-400 sm:text-right">Sep 2023 – Jun 2025</p>
+            <p className="text-sm text-gray-400 text-center">
+              Sep 2023 – Jun 2025
+            </p>
           </div>
 
           {/* Location */}
-          <p className="text-sm text-gray-400 mt-2">Corvallis, Oregon</p>
+          <p className="text-xs sm:text-sm text-gray-400 mt-2 text-center sm:text-left">
+            Corvallis, Oregon
+          </p>
         </div>
 
         {/* Indian Institute of Information Technology */}
-        <div className="bg-[#1e1e1e] rounded-lg p-6 shadow-lg shadow-blue-500/20">
-          <div className="flex justify-between items-center">
-            {/* Left: College Name + Icon */}
-            <div className="flex items-center gap-3">
-              <div className="text-blue-400 text-3xl">
+        <div className="bg-[#1e1e1e] rounded-lg p-4 md:p-6 shadow-lg shadow-blue-500/20">
+          {/* Header: Icon, College Name, GPA */}
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className="flex flex-col sm:flex-row items-center gap-2">
+              <div className="text-blue-400 text-xl sm:text-3xl">
                 <FaGraduationCap />
               </div>
-              <h3 className="text-xl font-semibold text-white">
+              <h3 className="text-lg sm:text-xl font-semibold text-white text-center sm:text-left">
                 Indian Institute of Information Technology
               </h3>
             </div>
-            {/* Right: GPA */}
-            <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-opacity-90 text-gray-900 px-3 py-1 rounded-full text-xs font-bold shadow-md">
+            <span className="mt-2 sm:mt-0 bg-gradient-to-r from-blue-500 to-green-500 bg-opacity-90 text-gray-900 px-2 sm:px-3 py-1 rounded-full text-xs font-bold shadow-md">
               GPA: 3.20 / 4.00
             </span>
           </div>
 
           {/* Degree & Duration */}
-          <div className="mt-2 flex flex-col sm:flex-row sm:justify-between">
-            <p className="text-gray-300 font-medium">
+          <div className="mt-2 flex flex-col sm:flex-row sm:justify-between items-center gap-2">
+            <p className="text-gray-300 font-medium text-sm sm:text-base text-center sm:text-left">
               Bachelor of Technology in Computer Science Engineering
             </p>
-            <p className="text-sm text-gray-400 sm:text-right">Aug 2016 – May 2020</p>
+            <p className="text-sm text-gray-400 text-center">
+              Aug 2016 – May 2020
+            </p>
           </div>
 
           {/* Location */}
-          <p className="text-sm text-gray-400 mt-2">Kota, Rajasthan</p>
+          <p className="text-xs sm:text-sm text-gray-400 mt-2 text-center sm:text-left">
+            Kota, Rajasthan
+          </p>
         </div>
       </div>
     ),

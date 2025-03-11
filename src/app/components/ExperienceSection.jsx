@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 // EXPERIENCE DATA (inline for convenience)
@@ -49,7 +49,79 @@ const EXPERIENCE_DATA = [
     },
 ];
 
+// Helper function to remove URL links and highlight keywords in bullet text
+const processBullet = (text) => {
+    // Remove any URLs enclosed in parentheses
+    const noLinks = text.replace(/\(https?:\/\/[^\)]+\)/g, "");
+
+    // Define a list of keywords to highlight
+    const keywords = [
+        "React",
+        "React Native",
+        "Node.js",
+        "AWS",
+        "TypeScript",
+        "PostgreSQL",
+        "Redis",
+        "Apex",
+        "Lightning Web Components",
+        "Salesforce",
+        "Salesforce Flows",
+        "custom Apex",
+        "Freedo Rental Services",
+        "SpeedScore",
+        "REST APIs",
+        "AWS S3",
+        "Mentored",
+        "full-stack",
+        "optimized",
+        "1M+",
+        "99.9%",
+        "30%",
+        "3",
+        "80+",
+        "tutorial videos",
+        "15",
+    ];
+
+    // Sort keywords by length descending
+    keywords.sort((a, b) => b.length - a.length);
+
+    // Escape special regex characters
+    const escapedKeywords = keywords.map((kw) =>
+        kw.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")
+    );
+    // Create regex that matches any keyword
+    const regex = new RegExp(`(${escapedKeywords.join("|")})`, "g");
+
+    // Split text into parts by keywords
+    const parts = noLinks.split(regex);
+
+    // Reassemble text, wrapping keywords in a span with highlight styles
+    return parts.map((part, index) => {
+        if (keywords.includes(part)) {
+            return (
+                <span key={index} className="font-bold">
+                    {part}
+                </span>
+            );
+        }
+        return <React.Fragment key={index}>{part}</React.Fragment>;
+    });
+};
+
 const ExperienceSection = () => {
+    // Track expanded state for mobile view for each experience item (by index)
+    const [expandedItems, setExpandedItems] = useState({});
+
+    // Reorder experiences so that the Industry Level experience comes first.
+    const sortedExperienceData = [
+        ...EXPERIENCE_DATA.filter((exp) =>
+            exp.company.includes("Industry Level")
+        ),
+        ...EXPERIENCE_DATA.filter((exp) => !exp.company.includes("Industry Level")),
+    ];
+
     return (
         <section id="experience" className="py-16 text-white">
             <div className="container mx-auto px-4 relative">
@@ -59,28 +131,26 @@ const ExperienceSection = () => {
                 {/* Center Line (only on medium screens and above) */}
                 <div
                     className="
-                        hidden md:block 
-                        absolute top-20 bottom-0 
-                        border-r-2 border-gray-600 border-dotted
-                        left-1/2 
-                        -translate-x-1/2
-                    "
+            hidden md:block 
+            absolute top-20 bottom-0 
+            border-r-2 border-gray-600 border-dotted
+            left-1/2 
+            -translate-x-1/2
+          "
                 />
 
                 {/* Timeline Items */}
                 <div className="flex flex-col space-y-12">
-                    {EXPERIENCE_DATA.map((exp, i) => {
-                        // Determine if even/odd index for left/right placement
+                    {sortedExperienceData.map((exp, i) => {
                         const isLeftSide = i % 2 === 0;
-                        // Animate from left if isLeftSide, else from right
                         const xMotion = isLeftSide ? -70 : 70;
+                        const isExpanded = expandedItems[i] || false;
 
                         return (
                             <motion.div
                                 key={i}
                                 className="relative w-full md:w-[48%] px-2"
                                 style={{
-                                    // On larger screens, push card to left or right of center
                                     marginLeft: isLeftSide ? "auto" : 0,
                                     marginRight: !isLeftSide ? "auto" : 0,
                                 }}
@@ -89,10 +159,10 @@ const ExperienceSection = () => {
                                 transition={{ duration: 0.6 }}
                                 viewport={{ once: true }}
                             >
-                                {/* Circle Indicator EXACTLY on the center line */}
+                                {/* Circle Indicator on the center line */}
                                 <div
                                     className={`
-                     hidden
+                    hidden
                     md:block
                     absolute
                     top-6
@@ -103,10 +173,8 @@ const ExperienceSection = () => {
                     border-4
                     border-black
                     ${isLeftSide
-                                            ? "left-[-4.25%] -translate-x-1/2"  // anchor left edge, shift left 50%
-                                            : "right-[-4.25%] translate-x-1/2" // anchor right edge, shift right 50%
-                                        }
-                    
+                                            ? "left-[-4.25%] -translate-x-1/2"
+                                            : "right-[-4.25%] translate-x-1/2"}
                   `}
                                 />
 
@@ -125,16 +193,50 @@ const ExperienceSection = () => {
                                     <h3 className="text-xl font-semibold text-blue-400 mb-1">
                                         {exp.title}
                                     </h3>
+                                    {exp.company.includes("Industry Level") && (
+                                        <span className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 bg-opacity-90 text-gray-900 px-2 py-1 rounded-full text-xs font-bold mb-2">
+                                            Industry Level
+                                        </span>
+                                    )}
                                     <p className="text-sm text-gray-300">
                                         {exp.company} | {exp.location}
                                     </p>
                                     <p className="text-sm text-gray-400 mb-3">{exp.dateRange}</p>
 
-                                    <ul className="list-disc list-inside space-y-2 text-gray-200">
-                                        {exp.bullets.map((bullet, idx) => (
-                                            <li key={idx}>{bullet}</li>
-                                        ))}
-                                    </ul>
+                                    {/* Desktop view: Always show bullet list */}
+                                    <div className="hidden md:block">
+                                        <ul className="list-disc list-inside space-y-2 text-gray-200">
+                                            {exp.bullets.map((bullet, idx) => (
+                                                <li key={idx}>{processBullet(bullet)}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* Mobile view: Toggle bullet list */}
+                                    <div className="block md:hidden">
+                                        {isExpanded ? (
+                                            <ul className="list-disc list-inside space-y-2 text-gray-200">
+                                                {exp.bullets.map((bullet, idx) => (
+                                                    <li key={idx}>{processBullet(bullet)}</li>
+                                                ))}
+                                            </ul>
+                                        ) : (
+                                            <p className="text-sm text-gray-400 mb-3">
+                                                Tap "Read More" to view details.
+                                            </p>
+                                        )}
+                                        <button
+                                            onClick={() =>
+                                                setExpandedItems((prev) => ({
+                                                    ...prev,
+                                                    [i]: !prev[i],
+                                                }))
+                                            }
+                                            className="text-blue-400 text-sm mt-2"
+                                        >
+                                            {isExpanded ? "Read Less" : "Read More"}
+                                        </button>
+                                    </div>
                                 </div>
                             </motion.div>
                         );
