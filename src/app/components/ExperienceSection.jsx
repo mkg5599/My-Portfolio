@@ -81,15 +81,11 @@ const processBullet = (text) => {
     ];
 
     keywords.sort((a, b) => b.length - a.length);
-
     const escapedKeywords = keywords.map((kw) =>
         kw.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")
     );
-
     const regex = new RegExp(`(${escapedKeywords.join("|")})`, "g");
-
     const parts = noLinks.split(regex);
-
     return parts.map((part, index) => {
         if (keywords.includes(part)) {
             return (
@@ -104,9 +100,10 @@ const processBullet = (text) => {
 
 const ExperienceSection = () => {
     const [expandedItems, setExpandedItems] = useState({});
-
     const sortedExperienceData = [
-        ...EXPERIENCE_DATA.filter((exp) => exp.company.includes("Industry Level")),
+        ...EXPERIENCE_DATA.filter((exp) =>
+            exp.company.includes("Industry Level")
+        ),
         ...EXPERIENCE_DATA.filter((exp) => !exp.company.includes("Industry Level")),
     ];
 
@@ -114,7 +111,15 @@ const ExperienceSection = () => {
         <section id="experience" className="py-16 text-white">
             <div className="container mx-auto px-4 relative">
                 <h2 className="text-4xl font-bold mb-10 text-center">Experience</h2>
-                <div className="hidden md:block absolute top-20 bottom-0 border-r-2 border-gray-600 border-dottedleft-1/2 -translate-x-1/2" />
+                <div
+                    className="
+            hidden md:block 
+            absolute top-20 bottom-0 
+            border-r-2 border-gray-600 border-dotted
+            left-1/2 
+            -translate-x-1/2
+          "
+                />
                 <div className="flex flex-col space-y-12">
                     {sortedExperienceData.map((exp, i) => {
                         const isLeftSide = i % 2 === 0;
@@ -148,8 +153,8 @@ const ExperienceSection = () => {
                     border-black
                     ${isLeftSide
                                             ? "left-[-4.25%] -translate-x-1/2"
-                                            : "right-[-4.25%] translate-x-1/2"
-                                        }`}
+                                            : "right-[-4.25%] translate-x-1/2"}
+                  `}
                                 />
                                 <div
                                     className="

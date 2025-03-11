@@ -9,6 +9,7 @@ import ExperienceSection from "./components/ExperienceSection";
 import ThreeBackground from "./components/ThreeBackground";
 import Loader from "./components/Loader";
 import { useState, useEffect } from "react";
+import ExperienceHighlights from "./components/ExperienceHighlights";
 
 export default function Home() {
 
@@ -32,6 +33,7 @@ export default function Home() {
       <ThreeBackground />
       <div className="container mt-24 mx-auto px-12 py-4 z-10">
         <HeroSection />
+        <ExperienceHighlights />
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
