@@ -1,34 +1,146 @@
+"use client";
 import React from "react";
-import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { FaGithub, FaGlobe } from "react-icons/fa";
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
+const ProjectCard = ({
+  imgUrl,
+  title,
+  description,
+  gitUrl,
+  previewUrl,
+  skills = [],
+  reverse = false,
+}) => {
   return (
-    <div>
+    <>
+      <div className="hidden md:flex flex-col md:flex-row rounded-xl overflow-hidden shadow-lg">
+        {!reverse && (
+          <div className="md:w-1/2">
+            <img
+              src={imgUrl}
+              alt={title}
+              className="w-full h-80 object-cover filter grayscale hover:grayscale-0 transition duration-300"
+            />
+          </div>
+        )}
+
+        <div className="md:w-1/2 flex flex-col justify-start p-2">
+          <h3
+            className={`text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500 relative ${reverse ? "text-left" : "text-right"
+              }`}
+          >
+            {title}
+          </h3>
+
+          <div
+            className={`mt-14 relative z-10 w-[110%] mx-auto ${!reverse ? " -ml-[10%]" : ""
+              }`}
+          >
+            <div
+              className={`bg-gradient-to-br 
+                    from-[#1f1f1f] 
+                    to-[#2a2a2a] 
+                    rounded-lg 
+                    p-6
+                    shadow-xl 
+                    ${reverse ? "shadow-blue-600/20" : "shadow-green-600/20"}`}
+            >
+              <p className="text-[#ADB7BE] text-left">{description}</p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mt-2 justify-center">
+            {skills.map((skill, index) => (
+              <span
+                key={index}
+                className="bg-transparent text-[#ADB7BE] text-sm font-medium px-2 py-1 rounded"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex gap-4 mt-4 justify-center">
+            {gitUrl && gitUrl !== "#" && (
+              <Link
+                href={gitUrl}
+                target="_blank"
+                className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
+              >
+                <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+                  <FaGithub className="h-6 w-6 text-[#ADB7BE]" />
+                </div>
+              </Link>)}
+            {previewUrl && previewUrl !== "#" && (
+              <Link
+                href={previewUrl}
+                target="_blank"
+                className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
+              >
+                <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+                  <FaGlobe className="h-6 w-6 text-[#ADB7BE]" />
+                </div>
+              </Link>)}
+          </div>
+        </div>
+
+        {reverse && (
+          <div className="md:w-1/2">
+            <img
+              src={imgUrl}
+              alt={title}
+              className="w-full h-80 object-cover filter grayscale hover:grayscale-0 transition duration-300 align-bottom"
+            />
+          </div>
+        )}
+      </div>
+
+      {/* Mobile View */}
       <div
-        className="h-52 md:h-72 rounded-t-xl relative group"
-        style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
+        className="md:hidden relative rounded-xl overflow-hidden shadow-lg bg-cover bg-center"
+        style={{ backgroundImage: `url(${imgUrl})` }}
       >
-        <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 ">
-          <Link
-            href={gitUrl}
-            className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-          >
-            <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
-          </Link>
-          <Link
-            href={previewUrl}
-            className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-          >
-            <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
-          </Link>
+        <div className="bg-black bg-opacity-90 p-6">
+          <h3 className="text-xl font-semibold text-white mb-4">{title}</h3>
+          <p className="text-[#ADB7BE] text-start mb-4 ">{description}</p>
+          <div className="flex flex-wrap gap-2 justify-start">
+            {skills.map((skill, index) => (
+              <span
+                key={index}
+                className="bg-transparent text-[#ADB7BE] text-sm font-medium px-2 py-1 rounded"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-4 mt-4 justify-center">
+            {gitUrl && gitUrl !== "#" && (
+              <Link
+                href={gitUrl}
+                target="_blank"
+                className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
+              >
+                <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+                  <FaGithub className="h-6 w-6 text-[#ADB7BE]" />
+                </div>
+              </Link>
+            )}
+            {previewUrl && previewUrl !== "#" && (
+              <Link
+                href={previewUrl}
+                target="_blank"
+                className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
+              >
+                <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+                  <FaGlobe className="h-6 w-6 text-[#ADB7BE]" />
+                </div>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
-      <div className="text-white rounded-b-xl mt-3 bg-[#181818]py-6 px-4">
-        <h5 className="text-xl font-semibold mb-2">{title}</h5>
-        <p className="text-[#ADB7BE]">{description}</p>
-      </div>
-    </div>
+    </>
   );
 };
 

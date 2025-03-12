@@ -1,130 +1,40 @@
 "use client";
-import React, { useState } from "react";
-import GithubIcon from "../../../public/github-icon.svg";
-import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FiMail } from "react-icons/fi";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
-
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
-
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
-    }
-  };
-
   return (
-    <section
-      id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
-    >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-      <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">
-          Let&apos;s Connect
-        </h5>
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {" "}
-          I&apos;m currently looking for new opportunities, my inbox is always
-          open. Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back to you!
-        </p>
-        <div className="socials flex flex-row gap-2">
-          <Link href="github.com">
-            <Image src={GithubIcon} alt="Github Icon" />
-          </Link>
-          <Link href="linkedin.com">
-            <Image src={LinkedinIcon} alt="Linkedin Icon" />
-          </Link>
-        </div>
-      </div>
-      <div>
-        {emailSubmitted ? (
-          <p className="text-green-500 text-sm mt-2">
-            Email sent successfully!
+    <section id="contact" className="relative my-12 py-24">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent opacity-10"></div>
+      <div className="relative z-10 container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-8">
+        <div className="flex-1 text-center md:text-left">
+          <h5 className="text-3xl font-bold text-white mb-4">Get In Touch</h5>
+          <p className="text-[#ADB7BE] mb-6">
+            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open!
           </p>
-        ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
-            <div className="mb-6">
-              <label
-                htmlFor="email"
-                className="text-white block mb-2 text-sm font-medium"
-              >
-                Your email
-              </label>
-              <input
-                name="email"
-                type="email"
-                id="email"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="jacob@google.com"
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="subject"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Subject
-              </label>
-              <input
-                name="subject"
-                type="text"
-                id="subject"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Just saying hi"
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="message"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Let's talk about..."
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
-            >
-              Send Message
-            </button>
-          </form>
-        )}
+          <div className="flex flex-row gap-4 justify-center md:justify-start mb-6">
+            <Link href="https://github.com/mkg5599" target="_blank">
+              <FaGithub className="text-5xl text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] hover:text-blue-400 hover:scale-110 transition-transform duration-300" />
+            </Link>
+            <Link href="https://www.linkedin.com/in/manoj-kumar-gummadi/" target="_blank">
+              <FaLinkedin className="text-5xl text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] hover:text-blue-400 hover:scale-110 transition-transform duration-300" />
+            </Link>
+            <Link href="mailto:your-email@example.com" target="_blank">
+              <FiMail className="text-5xl text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] hover:text-blue-400 hover:scale-110 transition-transform duration-300" />
+            </Link>
+          </div>
+        </div>
+        <div className="flex-1 relative w-full h-[300px] md:h-[400px] lg:h-[500px]">
+          <Image
+            src="/images/emailContact.svg"
+            alt="Contact Illustration"
+            fill
+            className="object-contain rounded-lg"
+          />
+        </div>
       </div>
     </section>
   );
