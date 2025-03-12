@@ -22,7 +22,7 @@ const EmailSection = () => {
             <Link href="https://www.linkedin.com/in/manoj-kumar-gummadi/" target="_blank">
               <FaLinkedin className="text-5xl text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] hover:text-blue-400 hover:scale-110 transition-transform duration-300" />
             </Link>
-            <Link href="mailto:your-email@example.com" target="_blank">
+            <Link href="mailto:gummadm@oregonstate.com" target="_blank">
               <FiMail className="text-5xl text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] hover:text-blue-400 hover:scale-110 transition-transform duration-300" />
             </Link>
           </div>
