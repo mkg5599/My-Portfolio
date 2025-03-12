@@ -13,7 +13,7 @@ const projectsData = [
       "Freedo Rental Services is an innovative platform that streamlines bike rentals across India by offering secure payment integration and real-time, location-based availability. Built with modern technologies such as React, React Native, TypeScript, Node.js, Firebase, PostgreSQL, Redis, and AWS, the platform delivers a seamless and scalable user experience.",
     image: "/images/projects/freedo.png",
     tag: ["All", "Web", "Mobile"],
-    gitUrl: "#",
+    gitUrl: "https://github.com/mkg5599/Freedo-Rental-Services",
     previewUrl: "https://freedo.rentals/",
     skills: [
       "React",
@@ -35,7 +35,7 @@ const projectsData = [
       "SpeedScore is a dynamic application designed for speedgolf enthusiasts. It enables users to track rounds, view detailed course maps, and connect with a vibrant community. Developed using the MERN stack, Redux Thunk, and AWS, the application emphasizes high performance and an engaging user experience.",
     image: "/images/projects/speedscore.png",
     tag: ["All", "Web", "Mobile"],
-    gitUrl: "#",
+    gitUrl: "https://github.com/speed-score/webapp-development",
     previewUrl: "https://www.speedscore.org/",
     skills: [
       "React",
@@ -55,7 +55,7 @@ const projectsData = [
       "The Recommendation System is an AI-powered engine that leverages convolutional neural networks, natural language processing, and TF-IDF techniques to deliver personalized product suggestions. This system enhances user engagement through data-driven, tailored recommendations.",
     image: "/images/projects/recommendation.png",
     tag: ["All"],
-    gitUrl: "#",
+    gitUrl: "https://github.com/mkg5599/Hybrid-Recommendation-System",
     previewUrl: "#",
     skills: [
       "Python",
@@ -91,7 +91,7 @@ const projectsData = [
       "Parallel Programming Projects showcase high-performance computing solutions that accelerate complex computations through advanced parallel programming techniques. Using MPI, OpenMP, OpenGL, GLUT and CUDA, these projects are optimized for resource-intensive applications and deliver significant performance enhancements.",
     image: "/images/projects/parallelprogramming.png",
     tag: ["All"],
-    gitUrl: "#",
+    gitUrl: "https://github.com/mkg5599/ParallelProgramming",
     previewUrl: "#",
     skills: ["C++", "CUDA", "MPI", "OpenGL", "GLUT"],
   },

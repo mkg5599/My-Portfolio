@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 import Link from "next/link";
-import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
+import { FaGithub, FaGlobe } from "react-icons/fa";
 
 const ProjectCard = ({
   imgUrl,
@@ -61,22 +62,26 @@ const ProjectCard = ({
           </div>
 
           <div className="flex gap-4 mt-4 justify-center">
-            <Link
-              href={gitUrl}
-              className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
-            >
-              <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
-                <CodeBracketIcon className="h-6 w-6 text-[#ADB7BE]" />
-              </div>
-            </Link>
-            <Link
-              href={previewUrl}
-              className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
-            >
-              <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
-                <EyeIcon className="h-6 w-6 text-[#ADB7BE]" />
-              </div>
-            </Link>
+            {gitUrl && gitUrl !== "#" && (
+              <Link
+                href={gitUrl}
+                target="_blank"
+                className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
+              >
+                <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+                  <FaGithub className="h-6 w-6 text-[#ADB7BE]" />
+                </div>
+              </Link>)}
+            {previewUrl && previewUrl !== "#" && (
+              <Link
+                href={previewUrl}
+                target="_blank"
+                className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
+              >
+                <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+                  <FaGlobe className="h-6 w-6 text-[#ADB7BE]" />
+                </div>
+              </Link>)}
           </div>
         </div>
 
@@ -91,6 +96,7 @@ const ProjectCard = ({
         )}
       </div>
 
+      {/* Mobile View */}
       <div
         className="md:hidden relative rounded-xl overflow-hidden shadow-lg bg-cover bg-center"
         style={{ backgroundImage: `url(${imgUrl})` }}
@@ -109,22 +115,28 @@ const ProjectCard = ({
             ))}
           </div>
           <div className="flex gap-4 mt-4 justify-center">
-            <Link
-              href={gitUrl}
-              className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
-            >
-              <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
-                <CodeBracketIcon className="h-6 w-6 text-[#ADB7BE]" />
-              </div>
-            </Link>
-            <Link
-              href={previewUrl}
-              className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
-            >
-              <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
-                <EyeIcon className="h-6 w-6 text-[#ADB7BE]" />
-              </div>
-            </Link>
+            {gitUrl && gitUrl !== "#" && (
+              <Link
+                href={gitUrl}
+                target="_blank"
+                className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
+              >
+                <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+                  <FaGithub className="h-6 w-6 text-[#ADB7BE]" />
+                </div>
+              </Link>
+            )}
+            {previewUrl && previewUrl !== "#" && (
+              <Link
+                href={previewUrl}
+                target="_blank"
+                className="flex items-center justify-center h-10 w-10 border-2 border-transparent rounded-full bg-gradient-to-r from-blue-500 to-green-500 p-0.5"
+              >
+                <div className="flex items-center justify-center h-10 w-10 bg-[#181818] rounded-full hover:bg-transparent">
+                  <FaGlobe className="h-6 w-6 text-[#ADB7BE]" />
+                </div>
+              </Link>
+            )}
           </div>
         </div>
       </div>
