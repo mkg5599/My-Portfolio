@@ -5,7 +5,6 @@ import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
-  // NEW PROJECT 1
   {
     id: 1,
     title: "Freedo Rental Services",
@@ -27,15 +26,25 @@ const projectsData = [
       "AWS",
     ],
   },
-  // NEW PROJECT 2
   {
     id: 2,
+    title: "Portfolio Website",
+    description:
+      "My personal portfolio website showcases my projects, skills, and experiences in an interactive and responsive design. Built with Next.js, three.js, Tailwind CSS, Framer Motion, and React, it delivers a modern and engaging user experience.",
+    image: "/images/projects/portfolio.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/mkg5599/My-Portfolio",
+    previewUrl: "https://manojkumargummadi.com",
+    skills: ["Next.js", "React", "three.js", "Tailwind CSS", "Framer Motion"],
+  },
+  {
+    id: 3,
     title: "SpeedScore",
     description:
       "SpeedScore is a dynamic application designed for speedgolf enthusiasts. It enables users to track rounds, view detailed course maps, and connect with a vibrant community. Developed using the MERN stack, Redux Thunk, and AWS, the application emphasizes high performance and an engaging user experience.",
     image: "/images/projects/speedscore.png",
     tag: ["All", "Web", "Mobile"],
-    gitUrl: "https://github.com/speed-score/webapp-development",
+    gitUrl: "https://github.com/mkg5599/SpeedScore",
     previewUrl: "https://www.speedscore.org/",
     skills: [
       "React",
@@ -48,8 +57,9 @@ const projectsData = [
       "AWS",
     ],
   },
+  // Project 3: Recommendation System
   {
-    id: 3,
+    id: 4,
     title: "Recommendation System",
     description:
       "The Recommendation System is an AI-powered engine that leverages convolutional neural networks, natural language processing, and TF-IDF techniques to deliver personalized product suggestions. This system enhances user engagement through data-driven, tailored recommendations.",
@@ -66,8 +76,9 @@ const projectsData = [
       "Data Processing",
     ],
   },
+  // Project 4: ML Projects
   {
-    id: 4,
+    id: 5,
     title: "ML Projects",
     description:
       "ML Projects encompass a suite of advanced machine learning models addressing challenges such as housing price prediction, sentiment analysis, and binary classification. Utilizing Python, Scikit-learn, TensorFlow, and NLP, these models are optimized for accuracy and efficiency, providing robust data-driven insights.",
@@ -84,30 +95,29 @@ const projectsData = [
       "Data Processing",
     ],
   },
-  {
-    id: 5,
-    title: "Parallel Programming Projects",
-    description:
-      "Parallel Programming Projects showcase high-performance computing solutions that accelerate complex computations through advanced parallel programming techniques. Using MPI, OpenMP, OpenGL, GLUT and CUDA, these projects are optimized for resource-intensive applications and deliver significant performance enhancements.",
-    image: "/images/projects/parallelprogramming.png",
-    tag: ["All"],
-    gitUrl: "https://github.com/mkg5599/ParallelProgramming",
-    previewUrl: "#",
-    skills: ["C++", "CUDA", "MPI", "OpenGL", "GLUT"],
-  },
+  // Project 5: Side Projects (merged with Parallel Programming Projects)
   {
     id: 6,
     title: "Side Projects",
     description:
-      "Side Projects highlight a diverse portfolio of software solutions, including a trust-based social game, a comprehensive library and contact management system in C++, and a centralized blood donation platform built with PHP and MySQL. These projects illustrate a broad spectrum of technology implementations and innovative software development approaches.",
+      "Side Projects highlight a diverse portfolio of software solutions, including a trust-based social game, a comprehensive library and contact management system in C++, and a centralized blood donation platform built with PHP and MySQL. Additionally, high-performance computing projects utilizing MPI, OpenMP, CUDA, OpenGL, and GLUT showcase my ability to optimize complex computations.",
     image: "/images/projects/other.png",
     tag: ["All"],
     gitUrl: "https://github.com/mkg5599?tab=repositories",
     previewUrl: "#",
-    skills: ["C++", "C#", "PHP", "MySQL", "JavaScript"],
+    skills: [
+      "C++",
+      "C#",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "CUDA",
+      "MPI",
+      "OpenGL",
+      "GLUT",
+    ],
   },
 ];
-
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
   const [showAll, setShowAll] = useState(false);
