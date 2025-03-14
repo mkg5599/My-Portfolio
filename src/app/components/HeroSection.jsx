@@ -45,7 +45,7 @@ const HeroSection = () => {
                 Contact Me
               </Link>
               <Link
-                href="https://drive.google.com/file/d/1yR9WFeM6TX9rcq6eiC3pmTGbyMdq5PEn/view?usp=sharing"
+                href="https://drive.google.com/file/d/1wKdQ6YaOQ9atFwvSbmE7qY2Ah2pu71HC/view?usp=sharing"
                 target="_blank"
                 className="px-8 py-3 rounded-full border border-blue-500 text-blue-500 font-semibold hover:bg-blue-500 hover:text-white transition"
               >
