@@ -35,7 +35,7 @@ const HeroSection = () => {
               className="block text-2xl sm:text-3xl text-white mb-6"
             />
             <p className="text-white text-lg mb-8">
-              I engineer robust, scalable digital solutions from full-stack applications to advanced AI systems - that drive innovation and empower teams.
+              I engineer robust, scalable digital solutions from full-stack applications to advanced AI - that drive innovation and empower teams.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
@@ -45,7 +45,7 @@ const HeroSection = () => {
                 Contact Me
               </Link>
               <Link
-                href="https://drive.google.com/file/d/1XWl6gValYyYDE0yCtQpBnGCs6BNxIMcZ/view?usp=sharing"
+                href="https://drive.google.com/file/d/1QKOlgRT172QvBjVJmGt9u8muQqYP21HC/view?usp=sharing"
                 target="_blank"
                 className="px-8 py-3 rounded-full border border-blue-500 text-blue-500 font-semibold hover:bg-blue-500 hover:text-white transition"
               >

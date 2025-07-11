@@ -5,7 +5,7 @@ import CountUp from "react-countup";
 const achievementsList = [
     {
         metric: "Years of Experience",
-        value: 3,
+        value: 4,
         postfix: "+",
     },
     {
@@ -16,7 +16,7 @@ const achievementsList = [
     {
         prefix: "~",
         metric: "Users",
-        value: 1000000,
+        value: `1M+`,
     },
 ];
 
