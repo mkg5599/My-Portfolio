@@ -16,7 +16,7 @@ const achievementsList = [
     {
         prefix: "~",
         metric: "Users",
-        value: `1M+`,
+        value: 1000000,
     },
 ];
 
