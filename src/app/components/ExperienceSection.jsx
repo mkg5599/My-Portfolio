@@ -4,10 +4,21 @@ import { motion } from "framer-motion";
 
 const EXPERIENCE_DATA = [
     {
-        title: "Graduate Project Assistant | MS Thesis Project",
-        company: "Oregon State University | Part-Time",
+        title: "Database Development Intern",
+        company: "Amorphyx",
         location: "Corvallis, OR, USA",
-        dateRange: "Mar 2024 – Present",
+        dateRange: "July 2025 – Present",
+        bullets: [
+            "Designed & normalized relational databases for fabrication/process data, ensuring integrity and scalability.",
+            "Automated ETL from Google Sheets to PostgreSQL with Apps Script + Python, reducing manual entry by 60%.",
+            "Built a Qt-based Python GUI that launches ETL scripts, stores CSVs in the DB, and displays graphs with Matplotlib."
+        ],
+    },
+    {
+        title: "Graduate Project Assistant | MS Thesis Project",
+        company: "Oregon State University",
+        location: "Corvallis, OR, USA",
+        dateRange: "Mar 2024 – Jun 2025",
         bullets: [
             "Leading a student team under a professor’s guidance to develop SpeedScore (https://www.speedscore.org/), defining project milestones and optimizing system architecture.",
             "Coordinating full-stack development with React, React Native, Node.js, AWS, ensuring research-driven feature enhancements.",
@@ -15,9 +26,9 @@ const EXPERIENCE_DATA = [
     },
     {
         title: "Graduate Teaching Assistant",
-        company: "Oregon State University | Part-Time",
+        company: "Oregon State University",
         location: "Corvallis, OR, USA",
-        dateRange: "Dec 2024 – Present",
+        dateRange: "Dec 2024 – Jun 2025",
         bullets: [
             "Graded and assisted 80+ students, providing detailed feedback to enhance their understanding and performance.",
             "Created tutorial videos for complex topics and conducted office hours for personalized academic support.",
@@ -25,9 +36,9 @@ const EXPERIENCE_DATA = [
     },
     {
         title: "Student Software Developer",
-        company: "Oregon State University | Part-Time",
+        company: "Oregon State University",
         location: "Corvallis, OR, USA",
-        dateRange: "Apr 2024 – Present",
+        dateRange: "Apr 2024 – Jun 2025",
         bullets: [
             "Developed the university’s Salesforce app for outdoor schools using Apex and Lightning Web Components (LWC).",
             "Integrated dynamic CMS content into LWC for seamless use in Experience Builder.",
@@ -36,7 +47,7 @@ const EXPERIENCE_DATA = [
     },
     {
         title: "Lead Software Engineer",
-        company: "Q3 Technologies | Industry Level",
+        company: "Q3 Technologies",
         location: "Gurgaon, HR, India",
         dateRange: "Nov 2020 – Aug 2023",
         bullets: [
@@ -78,6 +89,11 @@ const processBullet = (text) => {
         "80+",
         "tutorial videos",
         "15",
+        "normalized",
+        "Python",
+        "Qt-based Python GUI",
+        "ETL",
+        "Matplotlib"
     ];
 
     keywords.sort((a, b) => b.length - a.length);
@@ -100,12 +116,7 @@ const processBullet = (text) => {
 
 const ExperienceSection = () => {
     const [expandedItems, setExpandedItems] = useState({});
-    const sortedExperienceData = [
-        ...EXPERIENCE_DATA.filter((exp) =>
-            exp.company.includes("Industry Level")
-        ),
-        ...EXPERIENCE_DATA.filter((exp) => !exp.company.includes("Industry Level")),
-    ];
+    const sortedExperienceData = [...EXPERIENCE_DATA];
 
     return (
         <section id="experience" className="py-16 text-white">

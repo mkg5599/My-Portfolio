@@ -11,6 +11,7 @@ import {
     DiCss3,
     DiHtml5,
     DiJava,
+    DiSass
 } from "react-icons/di";
 import {
     SiCplusplus,
@@ -40,7 +41,13 @@ import {
     SiSalesforce,
     SiEsri,
     SiOpengl,
-    SiDocker
+    SiDocker,
+    SiKubernetes,
+    SiQt,
+    SiAnsible,
+    SiFastapi,
+    SiScikitlearn,
+    SiNginx
 } from "react-icons/si";
 import { TbLetterC, TbBrandCSharp } from "react-icons/tb";
 import { LiaAws } from "react-icons/lia";
@@ -92,6 +99,7 @@ const programmingSkills = [
     { Icon: TbBrandCSharp, label: "C#" },
     { Icon: DiHtml5, label: "HTML" },
     { Icon: DiCss3, label: "CSS" },
+    { Icon: DiSass, label: "Sass" },
 ];
 
 const frameworksSkills = [
@@ -101,6 +109,13 @@ const frameworksSkills = [
     { Icon: SiRedux, label: "Redux" },
     { Icon: DiNodejsSmall, label: "Node.js" },
     { Icon: SiExpress, label: "Express.js" },
+    { Icon: SiFastapi, label: "FastAPI" },
+    { Icon: SiQt, label: "Qt" },
+    { Icon: SiAnsible, label: "Ansible" },
+    { Icon: SiKubernetes, label: "Kubernetes" },
+    { Icon: SiNginx, label: "Nginx" },
+    { Icon: SiScikitlearn, label: "scikit-learn" },
+    { Icon: SiGraphql, label: "GraphQL" },
     { Icon: SiLaravel, label: "Laravel" },
     { Icon: SiAngular, label: "Angular" },
     { Icon: SiPytorch, label: "PyTorch" },
@@ -115,6 +130,7 @@ const frameworksSkills = [
 const cloudSkills = [
     { Icon: LiaAws, label: "AWS" },
     { Icon: SiDocker, label: "Docker" },
+    { Icon: SiKubernetes, label: "Kubernetes" },
     { Icon: SiPostgresql, label: "PostgreSQL" },
     { Icon: SiMysql, label: "MySQL" },
     { Icon: DiMongodb, label: "MongoDB" },
