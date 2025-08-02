@@ -4,57 +4,40 @@ import { motion } from "framer-motion";
 
 const EXPERIENCE_DATA = [
     {
-        title: "Database Development Intern",
+        title: "Software Development Intern - Database Systems",
         company: "Amorphyx",
         location: "Corvallis, OR, USA",
         dateRange: "July 2025 – Present",
         bullets: [
-            "Designed & normalized relational databases for fabrication/process data, ensuring integrity and scalability.",
-            "Automated ETL from Google Sheets to PostgreSQL with Apps Script + Python, reducing manual entry by 60%.",
-            "Built a Qt-based Python GUI that launches ETL scripts, stores CSVs in the DB, and displays graphs with Matplotlib."
+            "Architected and normalized PostgreSQL schemas for semiconductor process data; engineered comprehensive data dictionaries and designed optimized relational database schemas for process data management.",
+            "Streamlined ETL processes from Google Sheets to PostgreSQL using Apps Script and Python (pandas), reducing manual data entry by 60% and eliminating input errors through automated validation.",
+            "Engineered an EasyEXPERT-style Python (PyQt6) desktop application using object-oriented programming principles to launch test scripts, capture semiconductor analytical data, persist results to databases, and visualize data using Plotly for interactive real-time graphing.",
+            "Implemented comprehensive DevOps best practices by setting up end-to-end CI/CD pipelines in GitHub for Python services with automated testing frameworks (pytest), code quality tools (Black/Ruff), and containerized deployments using Docker for scalable microservices."
         ],
     },
     {
-        title: "Graduate Project Assistant | MS Thesis Project",
+        title: "Software Developer - AI + Full Stack",
         company: "Oregon State University",
         location: "Corvallis, OR, USA",
-        dateRange: "Mar 2024 – Jun 2025",
+        dateRange: "Dec 2023 – Jun 2025",
         bullets: [
-            "Leading a student team under a professor’s guidance to develop SpeedScore (https://www.speedscore.org/), defining project milestones and optimizing system architecture.",
-            "Coordinating full-stack development with React, React Native, Node.js, AWS, ensuring research-driven feature enhancements.",
+            "Led cross-functional student team in developing SpeedScore Mobile Application using Agile methodologies, setting sprint milestones and optimizing software architecture for scalable performance.",
+            "Engineered full-stack mobile application using React Native for cross-platform iOS/Android development, integrating Mapbox API for geolocation services, real-time data visualization, and seamless user experience with TypeScript, Node.js backend, and MongoDB data persistence.",
+            "Architected RAG (Retrieval-Augmented Generation) backend routes deployed on Pinecone with intelligent data filtering from database, enabling context-aware queries and seamless frontend integration for enhanced user experience and data retrieval efficiency.",
+            "Evaluated and provided technical feedback on Parallel Programming coursework including CUDA kernel optimization, MPI/multithreading implementations, and HCI projects focusing on usability heuristics, Figma prototypes, and WCAG accessibility standards for 80+ students.",
         ],
     },
     {
-        title: "Graduate Teaching Assistant",
-        company: "Oregon State University",
-        location: "Corvallis, OR, USA",
-        dateRange: "Dec 2024 – Jun 2025",
-        bullets: [
-            "Graded and assisted 80+ students, providing detailed feedback to enhance their understanding and performance.",
-            "Created tutorial videos for complex topics and conducted office hours for personalized academic support.",
-        ],
-    },
-    {
-        title: "Student Software Developer",
-        company: "Oregon State University",
-        location: "Corvallis, OR, USA",
-        dateRange: "Apr 2024 – Jun 2025",
-        bullets: [
-            "Developed the university’s Salesforce app for outdoor schools using Apex and Lightning Web Components (LWC).",
-            "Integrated dynamic CMS content into LWC for seamless use in Experience Builder.",
-            "Automated business processes with Salesforce Flows, reducing manual tasks by 25%, and optimized workflows using custom Apex functions.",
-        ],
-    },
-    {
-        title: "Lead Software Engineer",
+        title: "Senior Full-Stack Software Engineer",
         company: "Q3 Technologies",
         location: "Gurgaon, HR, India",
-        dateRange: "Nov 2020 – Aug 2023",
+        dateRange: "Nov 2020 – Sep 2023",
         bullets: [
-            "Led a team of 15 developers to build Freedo Rental Services (https://freedo.rentals/), a scalable sharing economy platform, achieving 1M+ downloads and 99.9% uptime.",
-            "Developed and optimized full-stack applications using React, React Native, TypeScript, Node.js, PostgreSQL, Redis, and AWS, improving response times by 30%.",
-            "Designed and integrated REST APIs for Trust Game, a social gaming platform, leveraging Redis caching and AWS S3.",
-            "Mentored 3 junior developers in React, API security, and scalable architectures, maintaining a 98% code quality.",
+            "Promoted from junior to senior, drove a 15-developer cross-functional team across front-end and back-end to ship React web and React Native mobile apps serving 1M+ users.",
+            "Designed and implemented scalable back-end microservices using Node.js/Express with TypeScript, exposing GraphQL and REST APIs; containerized applications with Docker and orchestrated deployments on AWS EKS using DevOps best practices.",
+            "Optimized system performance by implementing Redis caching layers and Amazon S3 object storage solutions, achieving 30% reduction in p95 API latency and 20% bandwidth optimization; performed database query optimization on PostgreSQL for enhanced application performance.",
+            "Engineered robust end-to-end CI/CD pipelines in GitHub using Ansible and NGINX for blue/green deployment strategies, enabling zero-downtime releases and maintaining 99.9% system uptime through automated testing and deployment processes.",
+            "Established software engineering standards including code review processes, testing frameworks, and release management protocols while mentoring 5 junior engineers in full-stack development and Agile/Scrum methodologies.",
         ],
     },
 ];
@@ -63,37 +46,53 @@ const processBullet = (text) => {
     const noLinks = text.replace(/\(https?:\/\/[^\)]+\)/g, "");
 
     const keywords = [
-        "React",
-        "React Native",
-        "Node.js",
-        "AWS",
-        "TypeScript",
         "PostgreSQL",
-        "Redis",
-        "Apex",
-        "Lightning Web Components",
-        "Salesforce",
-        "Salesforce Flows",
-        "custom Apex",
-        "Freedo Rental Services",
-        "SpeedScore",
+        "Python",
+        "PyQt6",
+        "Plotly",
+        "Docker",
+        "pytest",
+        "Black/Ruff",
+        "Apps Script",
+        "pandas",
+        "React Native",
+        "TypeScript",
+        "Node.js",
+        "MongoDB",
+        "Mapbox API",
+        "Pinecone",
+        "RAG",
+        "CUDA",
+        "MPI",
+        "Figma",
+        "WCAG",
+        "React",
+        "GraphQL",
         "REST APIs",
+        "AWS EKS",
+        "Redis",
         "AWS S3",
-        "Mentored",
+        "Ansible",
+        "NGINX",
+        "CI/CD",
+        "DevOps",
+        "microservices",
         "full-stack",
         "optimized",
         "1M+",
         "99.9%",
         "30%",
-        "3",
+        "20%",
+        "60%",
+        "5",
         "80+",
-        "tutorial videos",
         "15",
         "normalized",
-        "Python",
-        "Qt-based Python GUI",
         "ETL",
-        "Matplotlib"
+        "semiconductor",
+        "Agile",
+        "cross-functional",
+        "scalable"
     ];
 
     keywords.sort((a, b) => b.length - a.length);
@@ -181,11 +180,6 @@ const ExperienceSection = () => {
                                     <h3 className="text-xl font-semibold text-blue-400 mb-1">
                                         {exp.title}
                                     </h3>
-                                    {exp.company.includes("Industry Level") && (
-                                        <span className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 bg-opacity-90 text-gray-900 px-2 py-1 rounded-full text-xs font-bold mb-2">
-                                            Industry Level
-                                        </span>
-                                    )}
                                     <p className="text-sm text-gray-300">
                                         {exp.company} | {exp.location}
                                     </p>

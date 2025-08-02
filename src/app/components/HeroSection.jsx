@@ -24,10 +24,10 @@ const HeroSection = () => {
             </h1>
             <TypeAnimation
               sequence={[
-                "Lead Software Engineer", 1500,
-                "Full-Stack Engineer", 1500,
-                "Machine Learning Engineer", 1500,
-                "Technical Mentor", 1500,
+                "Senior Software Engineer", 1500,
+                "Generative AI + Full Stack Developer", 1500,
+                "Database Systems Engineer", 1500,
+                "Mobile App Developer", 1500,
               ]}
               wrapper="span"
               speed={50}
@@ -45,7 +45,7 @@ const HeroSection = () => {
                 Contact Me
               </Link>
               <Link
-                href="https://drive.google.com/file/d/1QKOlgRT172QvBjVJmGt9u8muQqYP21HC/view?usp=sharing"
+                href="https://drive.google.com/file/d/1tFV8-M9w5BYofmsR8BgTgAVNsgRZ7061/view?usp=sharing"
                 target="_blank"
                 className="px-8 py-3 rounded-full border border-blue-500 text-blue-500 font-semibold hover:bg-blue-500 hover:text-white transition"
               >
