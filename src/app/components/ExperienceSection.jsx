@@ -19,7 +19,7 @@ const EXPERIENCE_DATA = [
         title: "Software Developer - AI + Full Stack",
         company: "Oregon State University",
         location: "Corvallis, OR, USA",
-        dateRange: "Dec 2023 – Jun 2025",
+        dateRange: "Sep 2023 – Jun 2025",
         bullets: [
             "Led cross-functional student team in developing SpeedScore Mobile Application using Agile methodologies, setting sprint milestones and optimizing software architecture for scalable performance.",
             "Engineered full-stack mobile application using React Native for cross-platform iOS/Android development, integrating Mapbox API for geolocation services, real-time data visualization, and seamless user experience with TypeScript, Node.js backend, and MongoDB data persistence.",
@@ -31,7 +31,7 @@ const EXPERIENCE_DATA = [
         title: "Senior Full-Stack Software Engineer",
         company: "Q3 Technologies",
         location: "Gurgaon, HR, India",
-        dateRange: "Nov 2020 – Sep 2023",
+        dateRange: "Nov 2020 – Aug 2023",
         bullets: [
             "Promoted from junior to senior, drove a 15-developer cross-functional team across front-end and back-end to ship React web and React Native mobile apps serving 1M+ users.",
             "Designed and implemented scalable back-end microservices using Node.js/Express with TypeScript, exposing GraphQL and REST APIs; containerized applications with Docker and orchestrated deployments on AWS EKS using DevOps best practices.",
