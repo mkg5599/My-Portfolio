@@ -4,40 +4,41 @@ import { motion } from "framer-motion";
 
 const EXPERIENCE_DATA = [
     {
-        title: "Software Development Intern - Database Systems",
+        title: "Software Engineering Intern",
         company: "Amorphyx",
         location: "Corvallis, OR, USA",
-        dateRange: "July 2025 – Present",
+        dateRange: "July 2025 - Dec 2025",
         bullets: [
-            "Architected and normalized PostgreSQL schemas for semiconductor process data; engineered comprehensive data dictionaries and designed optimized relational database schemas for process data management.",
-            "Streamlined ETL processes from Google Sheets to PostgreSQL using Apps Script and Python (pandas), reducing manual data entry by 60% and eliminating input errors through automated validation.",
-            "Engineered an EasyEXPERT-style Python (PyQt6) desktop application using object-oriented programming principles to launch test scripts, capture semiconductor analytical data, persist results to databases, and visualize data using Plotly for interactive real-time graphing.",
-            "Implemented comprehensive DevOps best practices by setting up end-to-end CI/CD pipelines in GitHub for Python services with automated testing frameworks (pytest), code quality tools (Black/Ruff), and containerized deployments using Docker for scalable microservices."
+            "Designed and normalized PostgreSQL schemas for semiconductor process data supporting nearly 100K records per experiment, while building Python and FastAPI backend services for validation, ingestion, and database integration.",
+            "Developed full stack workflows using React and TypeScript integrated with FastAPI APIs, enabling dynamic form driven data entry and reducing manual data entry and review effort by 40%.",
+            "Automated end to end ETL pipelines using Google Apps Script and Python to ingest structured data into PostgreSQL, reducing manual ingestion effort by 60% and minimizing data errors.",
+            "Improved system performance via query optimization, code splitting, and lazy loading, reducing page load time by 35%."
         ],
     },
     {
-        title: "Software Developer - AI + Full Stack",
+        title: "Software Developer",
         company: "Oregon State University",
         location: "Corvallis, OR, USA",
-        dateRange: "Sep 2023 – Jun 2025",
+        dateRange: "Sep 2023 - Dec 2025",
         bullets: [
-            "Led cross-functional student team in developing SpeedScore Mobile Application using Agile methodologies, setting sprint milestones and optimizing software architecture for scalable performance.",
-            "Engineered full-stack mobile application using React Native for cross-platform iOS/Android development, integrating Mapbox API for geolocation services, real-time data visualization, and seamless user experience with TypeScript, Node.js backend, and MongoDB data persistence.",
-            "Architected RAG (Retrieval-Augmented Generation) backend routes deployed on Pinecone with intelligent data filtering from database, enabling context-aware queries and seamless frontend integration for enhanced user experience and data retrieval efficiency.",
-            "Evaluated and provided technical feedback on Parallel Programming coursework including CUDA kernel optimization, MPI/multithreading implementations, and HCI projects focusing on usability heuristics, Figma prototypes, and WCAG accessibility standards for 80+ students.",
+            "Led development of production full stack web and mobile applications used by 1000+ active users, spanning frontend interfaces, backend services, and cloud deployments.",
+            "Designed and implemented backend services and REST APIs using Node.js and PostgreSQL, supporting secure authentication, authorization, and data access.",
+            "Built reusable UI components with React, React Native, and TypeScript, reducing duplicated frontend code by 30%.",
+            "Deployed applications on AWS using Docker and CI CD pipelines, reducing deployment issues by 25%.",
+            "Implemented RAG features with LangChain and Pinecone and optimized performance, improving Web Vitals by 40%."
         ],
     },
     {
-        title: "Senior Full-Stack Software Engineer",
+        title: "Senior Software Engineer",
         company: "Q3 Technologies",
         location: "Gurgaon, HR, India",
-        dateRange: "Nov 2020 – Aug 2023",
+        dateRange: "Nov 2020 - Aug 2023",
         bullets: [
-            "Promoted from junior to senior, drove a 15-developer cross-functional team across front-end and back-end to ship React web and React Native mobile apps serving 1M+ users.",
-            "Designed and implemented scalable back-end microservices using Node.js/Express with TypeScript, exposing GraphQL and REST APIs; containerized applications with Docker and orchestrated deployments on AWS EKS using DevOps best practices.",
-            "Optimized system performance by implementing Redis caching layers and Amazon S3 object storage solutions, achieving 30% reduction in p95 API latency and 20% bandwidth optimization; performed database query optimization on PostgreSQL for enhanced application performance.",
-            "Engineered robust end-to-end CI/CD pipelines in GitHub using Ansible and NGINX for blue/green deployment strategies, enabling zero-downtime releases and maintaining 99.9% system uptime through automated testing and deployment processes.",
-            "Established software engineering standards including code review processes, testing frameworks, and release management protocols while mentoring 5 junior engineers in full-stack development and Agile/Scrum methodologies.",
+            "Led an Agile team of 15 engineers delivering a consumer facing platform serving 1M+ users across web and mobile, while owning technical execution and roadmap delivery.",
+            "Owned full stack system architecture spanning frontend applications, backend services, databases, and cloud infrastructure supporting high traffic production workloads.",
+            "Designed and operated distributed backend services using Node.js, PostgreSQL, Redis, REST, and GraphQL, sustaining 99.9% uptime while improving API latency by 30% through caching and indexing.",
+            "Built reusable frontend component libraries and design systems using React, React Native, and TypeScript, reducing frontend rework by 25% and accelerating feature delivery.",
+            "Managed cloud infrastructure and deployments on AWS using Kubernetes, Docker, CI CD pipelines, and Terraform, while mentoring 5 engineers and driving engineering best practices."
         ],
     },
 ];

@@ -82,10 +82,9 @@ const TAB_DATA = [
 			<ul className="list-disc pl-4 space-y-2 text-gray-200 text-left">
 				<li>
 					<span className="font-bold">
-						AWS Certified Cloud Practitioner
+						AWS Certified Solutions Architect - Associate
 					</span>{" "}
-					- Demonstrated proficiency in AWS cloud services and best
-					practices.
+					- (Expires 2028-12-29)
 				</li>
 				<li>
 					Achieved a{" "}

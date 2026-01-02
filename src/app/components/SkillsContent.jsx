@@ -57,7 +57,9 @@ import {
     SiPlaywright,
     SiJest,
     SiLangchain,
-    SiGooglegemini
+    SiGooglegemini,
+    SiApachekafka,
+    SiCypress
 } from "react-icons/si";
 import { TbLetterC, TbBrandCSharp } from "react-icons/tb";
 import { LiaAws } from "react-icons/lia";
@@ -166,6 +168,7 @@ const cloudSkills = [
     { Icon: SiPostgresql, label: "PostgreSQL" },
     { Icon: DiMongodb, label: "MongoDB" },
     { Icon: SiRedis, label: "Redis" },
+    { Icon: SiApachekafka, label: "Apache Kafka" },
     { Icon: SiFirebase, label: "Firebase" },
     { Icon: SiMysql, label: "MySQL" },
     { Icon: DiGit, label: "Git" },
@@ -176,6 +179,7 @@ const cloudSkills = [
     { Icon: SiEsri, label: "Mapbox API" },
     { Icon: SiEsri, label: "ArcGIS" },
     { Icon: SiPlaywright, label: "Playwright" },
+    { Icon: SiCypress, label: "Cypress" },
     { Icon: SiJest, label: "Jest" },
 ];
 

@@ -9,7 +9,7 @@ const projectsData = [
 		id: 1,
 		title: "Agentic AI Product Catalog",
 		description:
-			"Engineered full-stack AI-powered product search platform with voice-enabled natural language queries, implementing Model Context Protocol (MCP) architecture with Gemini 2.0 Flash function calling, OpenAI Whisper transcription, and FastAPI microservices. Built a RAG chatbot with LangChain, OpenAI embeddings, and intelligent tool selection system with 4 specialized MCP tools for context-aware query routing.",
+			"Engineered full-stack AI-powered product search platform with voice-enabled natural language queries, implementing Model Context Protocol (MCP) architecture with Gemini 2.0 Flash function calling, OpenAI Whisper transcription, and FastAPI microservices. Built a RAG chatbot with LangChain, OpenAI embeddings, and intelligent tool selection system with 4 specialized MCP tools for context-aware query routing, enabling sub 200 ms semantic product search.",
 		image: "/images/projects/ai-catalog.png",
 		tag: ["All", "Web", "AI"],
     gitUrl: "https://github.com/mkg5599/mcp-voice-app",
